@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<otrs_package version="1.0">
+    <Name>Znuny4OTRS-CISearch</Name>
+    <Version>1.0.0</Version>
+    <Framework>4.0.x</Framework>
+    <PackageRequired Version="2.0.14">Znuny4OTRS-Repo</PackageRequired>
+    <Vendor>Znuny GmbH</Vendor>
+    <URL>http://znuny.com/</URL>
+    <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
+    <Description Lang="en">This package adds an additional toolbar search box for config items.</Description>
+    <Description Lang="de">Dieses Paket fügt eine neue Suchmaske nach Config Items in der Toolbar hinzu..</Description>
+    <Filelist>
+        <File Permission="644" Location="Kernel/Config/Files/Znuny4OTRSCISearch.xml"/>
+        <File Permission="644" Location="Kernel/Language/de_Znuny4OTRSCISearch.pm"/>
+        <File Permission="644" Location="Kernel/Modules/Znuny4OTRSCISearch.pm"/>
+        <File Permission="644" Location="var/httpd/htdocs/js/Core.Agent.Znuny4OTRSCISearch.js"/>
+    </Filelist>
+</otrs_package>

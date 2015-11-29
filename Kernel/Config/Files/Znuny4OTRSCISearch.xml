@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<otrs_config version="1.0" init="Application">
+    <ConfigItem Name="Loader::Agent::CommonJS###999-Znuny4OTRSCISearch" Required="0" Valid="1">
+        <Description Translatable="1">List of JS files to always be loaded for the agent interface.</Description>
+        <Group>Znuny4OTRS-CISearch</Group>
+        <SubGroup>Core::Web</SubGroup>
+        <Setting>
+            <Array>
+                <Item>Core.Agent.Znuny4OTRSCISearch.js</Item>
+            </Array>
+        </Setting>
+    </ConfigItem>
+    <ConfigItem Name="PreApplicationModule###Znuny4OTRSCISearch" Required="0" Valid="1">
+        <Description Translatable="1">Defines a module to enable Znuny4OTRS repo informations.</Description>
+        <Group>Znuny4OTRS-TimeZone</Group>
+        <SubGroup>Frontend::Agent</SubGroup>
+        <Setting>
+            <String Regex="">Kernel::Modules::Znuny4OTRSCISearch</String>
+        </Setting>
+    </ConfigItem>
+</otrs_config>
