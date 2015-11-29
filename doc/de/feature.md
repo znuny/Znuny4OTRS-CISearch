@@ -3,8 +3,8 @@
 Im OTRS Standard ist es nicht möglich über die Toolbar Config Items zu suchen. 
 Diese Erweiterung erlaubt es in allen Config Item Klassen zu suchen, auf die man
 berechtig ist. 
-Dieser Erweiterung fügt ein Dropdown mit Config Item Klassen und ein Suchfeld in die Tollbar ein,
-dass es ermöglich nach dem Namen von Config Items zu suchen.
+Dieser Erweiterung fügt ein Dropdown mit Config Item Klassen und ein Suchfeld in die Toolbar ein,
+dass es ermöglicht nach dem Namen von Config Items zu suchen.
 
 ## Sysconfig Einstellungen
 Die Erweiterung kann mit 3 Sysconfig Einstellungen konfiguriert werden:
