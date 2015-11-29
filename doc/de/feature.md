@@ -1,9 +1,24 @@
-# Kurze Zusammenfassung in 5 Wörtern
+# Toolbar CI Suche
 
-Im OTRS Standard (ist es nicht möglich/ist es eingeschränkt möglich)....
-Diese Erweiterung enthält die Funktionalität um Dieses Paket fügt eine neue Suchmaske nach Config Items in der Toolbar hinzu.
+Im OTRS Standard ist es nicht möglich über die Toolbar Config Items zu suchen. 
+Diese Erweiterung erlaubt es in allen Config Item Klassen zu suchen, auf die man
+berechtig ist. 
+Dieser Erweiterung fügt ein Dropdown mit Config Item Klassen und ein Suchfeld in die Tollbar ein,
+dass es ermöglich nach dem Namen von Config Items zu suchen.
 
-...
-   * ListItem
+## Sysconfig Einstellungen
+Die Erweiterung kann mit 3 Sysconfig Einstellungen konfiguriert werden:
 
-![TITLE](doc/images/image_name.png)
+### Znuny4OTRSCISearch::SearchParams###Prefix
+
+Erlaubt es einen Prefix Parameter für die Suche zu definieren, der an jede Eingabe im Suchfeld vorangestellt wird.
+
+### Znuny4OTRSCISearch::SearchParams###Suffix
+
+Erlaubt es einen Suffix Parameter für die Suche zu definieren, der an jede Eingabe im Suchfeld angefügt wird.
+
+### Znuny4OTRSCISearch::SearchParams###DefaultClassName
+
+Erlaubt es eine Standard Klasse für die Suche zu definieren. 
+
+Hinweis: CI Klassen Namen werden ggf. auch übersetzt!
