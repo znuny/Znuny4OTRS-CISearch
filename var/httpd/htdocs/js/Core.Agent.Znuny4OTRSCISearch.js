@@ -23,6 +23,10 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
 
     TargetNS.Init = function ( CIClasses ) {
 
+        // get default class, if given
+        var ciSearchLabel = Core.Config.Get('CISearch.Label') || ' CI Search';
+        var defaultClass = Core.Config.Get('CISearch.DefaultClassName') || '';
+
         $("#ToolBar").append('<li class="Extended SearchProfile"><form id="CISearch"></form></li>');
         $('#CISearch')
             .attr("action","/wgz/index.pl").attr("method","post")
@@ -38,21 +42,34 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
             .append('<input type="hidden" name="PreviousVersionSearch" value="0">')
             .append('<input type="hidden" name="ResultForm" value="Normal">')
             .append('<input type="hidden" name="Name" id="CIName" value="">')
-            .append('<input type="text" size="20" name="SearchName" id="SearchName" value="" placeholder="CI Suche" title="CISuche">')
+            .append('<input type="text" size="20" name="SearchName" id="SearchName" value="" placeholder="'+ciSearchLabel+'" title="'+ciSearchLabel+'">')
 
-        // populate the class dropdown
+        // populate the class dropdown and select the default class
         $('#CIClassSelection').append($('<option>').text('-').attr('value', '-'));
         $.each(CIClasses, function (key, value) {
+            if(value === defaultClass){
+             $('#CIClassSelection').append($('<option>').text(value).attr('value', key).attr('selected', 'selected'));
+            }else{
              $('#CIClassSelection').append($('<option>').text(value).attr('value', key));
+            }
         });
 
+        // get config values for pre and suffix
+        var prefix = Core.Config.Get('CISearch.Prefix')||'';
+        var suffix = Core.Config.Get('CISearch.Suffix')||'';
         // register change event to pass the value from fulltext search box to the hidden name field
         $("#SearchName").on("change paste keyup", function() {
-           $("#CIName").val('*'+$(this).val()+'*')
+           $("#CIName").val(prefix+$(this).val()+suffix)
         });
 
         // set classid from select box to the hidden classid text field
         $( "#CISearch" ).submit(function( event ) {
+
+            //Don't submit if no class is selected
+            if ($("#CIClassSelection").val()==='-'){
+                event.preventDefault;
+            }
+
           $("#ClassID").val($("#CIClassSelection").val());
         });
 

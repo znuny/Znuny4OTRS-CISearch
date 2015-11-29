@@ -45,6 +45,12 @@ sub PreRun {
 
     # get config, just for the search
     $Self->{Config} = $Self->{ConfigObject}->Get("ITSMConfigItem::Frontend::AgentITSMConfigItemSearch");
+    my $CISearchConfig = $Self->{ConfigObject}->Get("Znuny4OTRSCISearch::SearchParams") || '';
+
+    my $CISearchLabel        = $Kernel::OM->Get('Kernel::Language')->Translate('CI Search') || 'CI Search';
+    my $CISearchPrefix       = $CISearchConfig->{Pre}                                       || '';
+    my $CISearchSuffix       = $CISearchConfig->{Suffix}                                    || '';
+    my $CISearchDefaultClass = $CISearchConfig->{DefaultClassName}                          || '';
 
     # get all classes (code from AgentITSMConfigItemSearch.pm L.64-79)
     my $ClassList = $GeneralCatalogObject->ItemList(
@@ -76,6 +82,12 @@ sub PreRun {
 
     $LayoutObject->AddJSOnDocumentComplete(
         Code => <<ZNUNY,
+        //set defaults
+
+        Core.Config.Set('CISearch.Label', '$CISearchLabel'  );
+        Core.Config.Set('CISearch.Prefix', '$CISearchPrefix'  );
+        Core.Config.Set('CISearch.Suffix', '$CISearchSuffix' );
+        Core.Config.Set('CISearch.DefaultClassName', '$CISearchDefaultClass' );
         var CIClasses = $JSONString;
         Core.Agent.Znuny4OTRSCISearch.Init(CIClasses);
 

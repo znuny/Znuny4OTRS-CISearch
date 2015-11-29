@@ -17,7 +17,12 @@ use utf8;
 sub Data {
     my $Self = shift;
 
-
+    $Self->{Translation}->{'Do you want to set a default class for you search?'} = 'Welche Standard CI-Klasse soll ausgewählt sein?';
+    $Self->{Translation}->{'Do you want to use a suffix for you search?'} = 'Welcher Suffix soll für die Suche verwendet werden?';
+    $Self->{Translation}->{'Do you want to use a prefix for you search?'} = 'Welcher prefix soll für die Suche verwendet werden?';
+    $Self->{Translation}->{'Defines a module to enable Znuny4OTRS-CISearch in all views.'} = 'Definert das Modul um die CI Suche in allen Ansichten zu aktivieren.';
+    $Self->{Translation}->{'List of JS files to always be loaded for the agent interface to enable the CI search functionality.'} = 'Liste aller JS Dateien die geladen werden um die CI Suche zu ermöglichen.';
+    $Self->{Translation}->{'CI Search'} = 'CI Suche';
     return 1;
 }
 
