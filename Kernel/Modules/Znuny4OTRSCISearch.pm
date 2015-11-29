@@ -51,6 +51,8 @@ sub PreRun {
         Class => 'ITSM::ConfigItem::Class',
     );
 
+    return if !$ClassList;
+
     # check for access rights on the classes
     for my $ClassID ( sort keys %{$ClassList} ) {
         my $HasAccess = $ConfigItemObject->Permission(
@@ -62,6 +64,11 @@ sub PreRun {
 
         delete $ClassList->{$ClassID} if !$HasAccess;
     }
+
+    # Check Class Count
+
+    my $ClassCount = keys %{$ClassList};
+    return if $ClassList <= 0;
 
     my $JSONString = $JSONObject->Encode(
         Data => $ClassList,

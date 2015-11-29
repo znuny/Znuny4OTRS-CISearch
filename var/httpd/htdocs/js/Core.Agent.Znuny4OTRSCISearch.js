@@ -40,7 +40,8 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
             .append('<input type="hidden" name="Name" id="CIName" value="">')
             .append('<input type="text" size="20" name="SearchName" id="SearchName" value="" placeholder="CI Suche" title="CISuche">')
 
-            // populate the class dropdown
+        // populate the class dropdown
+        $('#CIClassSelection').append($('<option>').text('-').attr('value', '-'));
         $.each(CIClasses, function (key, value) {
              $('#CIClassSelection').append($('<option>').text(value).attr('value', key));
         });
@@ -50,6 +51,7 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
            $("#CIName").val('*'+$(this).val()+'*')
         });
 
+        // set classid from select box to the hidden classid text field
         $( "#CISearch" ).submit(function( event ) {
           $("#ClassID").val($("#CIClassSelection").val());
         });
