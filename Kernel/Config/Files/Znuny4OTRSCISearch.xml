@@ -11,15 +11,15 @@
         </Setting>
     </ConfigItem>
     <ConfigItem Name="PreApplicationModule###Znuny4OTRSCISearch" Required="0" Valid="1">
-        <Description Translatable="1">Defines a module to enable Znuny4OTRS-CISearch in all views.</Description>
+        <Description Translatable="1">This configuration defines a PreApplication module to enable Znuny4OTRS-CISearch in all views.</Description>
         <Group>Znuny4OTRS-CISearch</Group>
         <SubGroup>Frontend::Agent</SubGroup>
         <Setting>
             <String Regex="">Kernel::Modules::Znuny4OTRSCISearch</String>
         </Setting>
     </ConfigItem>
-    <ConfigItem Name="Znuny4OTRSCISearch::SearchParams###Pre" Required="1" Valid="1">
-        <Description Translatable="1">Do you want to use a prefix for you search?</Description>
+    <ConfigItem Name="Znuny4OTRSCISearch::SearchParams###Prefix" Required="1" Valid="1">
+        <Description Translatable="1">This configuration defines a prefix that should be used for the CI search.</Description>
         <Group>Znuny4OTRS-CISearch</Group>
         <SubGroup>Core</SubGroup>
         <Setting>
@@ -27,7 +27,7 @@
         </Setting>
     </ConfigItem>
     <ConfigItem Name="Znuny4OTRSCISearch::SearchParams###Suffix" Required="1" Valid="1">
-        <Description Translatable="1">Do you want to use a suffix for you search?</Description>
+        <Description Translatable="1">This configuration defines a suffix that should be used for the CI search.</Description>
         <Group>Znuny4OTRS-CISearch</Group>
         <SubGroup>Core</SubGroup>
         <Setting>
@@ -35,7 +35,7 @@
         </Setting>
     </ConfigItem>
     <ConfigItem Name="Znuny4OTRSCISearch::SearchParams###DefaultClassName" Required="1" Valid="1">
-        <Description Translatable="1">Do you want to set a default class for you search?</Description>
+        <Description Translatable="1">This configuration defines a default class name that is used for the CI search.</Description>
         <Group>Znuny4OTRS-CISearch</Group>
         <SubGroup>Core</SubGroup>
         <Setting>
