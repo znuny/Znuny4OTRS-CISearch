@@ -9,7 +9,7 @@
     <URL>http://znuny.com/</URL>
     <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
     <Description Lang="en">This package adds an additional toolbar search box for config items.</Description>
-    <Description Lang="de">Dieses Paket fügt eine neue Suchmaske nach Config Items der Toolbar hinzu.</Description>
+    <Description Lang="de">Dieses Paket fügt eine neue Suchmaske nach Config Items zur Toolbar hinzu.</Description>
     <Filelist>
         <File Permission="644" Location="Kernel/Config/Files/Znuny4OTRSCISearch.xml"/>
         <File Permission="644" Location="Kernel/Language/de_Znuny4OTRSCISearch.pm"/>
