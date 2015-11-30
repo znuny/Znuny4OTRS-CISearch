@@ -23,41 +23,34 @@ sub new {
     my $Self = \%Param;
     bless( $Self, $Type );
 
-    # check needed objects
-    NEEDED:
-    for my $Needed (qw(ParamObject DBObject LogObject ConfigObject SessionObject)) {
-
-        next NEEDED if $Self->{$Needed};
-
-        $Self->{LayoutObject}->FatalError( Message => "Got no $Needed!" );
-    }
-
     return $Self;
 }
 
 sub PreRun {
     my ( $Self, %Param ) = @_;
 
+    my $ConfigObject         = $Kernel::OM->Get('Kernel::Config');
+    my $LanguageObject       = $Kernel::OM->Get('Kernel::Language');
     my $JSONObject           = $Kernel::OM->Get('Kernel::System::JSON');
     my $LayoutObject         = $Kernel::OM->Get('Kernel::Output::HTML::Layout');
     my $GeneralCatalogObject = $Kernel::OM->Get('Kernel::System::GeneralCatalog');
     my $ConfigItemObject     = $Kernel::OM->Get('Kernel::System::ITSMConfigItem');
 
     # get config, just for the search
-    $Self->{Config} = $Self->{ConfigObject}->Get("ITSMConfigItem::Frontend::AgentITSMConfigItemSearch");
-    my $CISearchConfig = $Self->{ConfigObject}->Get("Znuny4OTRSCISearch::SearchParams") || '';
+    $Self->{Config}    = $ConfigObject->Get("ITSMConfigItem::Frontend::AgentITSMConfigItemSearch");
+    my $CISearchConfig = $ConfigObject->Get("Znuny4OTRSCISearch::SearchParams") || '';
 
-    my $CISearchLabel        = $Kernel::OM->Get('Kernel::Language')->Translate('CI Search') || 'CI Search';
-    my $CISearchPrefix       = $CISearchConfig->{Pre}                                       || '';
-    my $CISearchSuffix       = $CISearchConfig->{Suffix}                                    || '';
-    my $CISearchDefaultClass = $CISearchConfig->{DefaultClassName}                          || '';
+    my $CISearchLabel        = $LanguageObject->Translate('CI Search') || 'CI Search';
+    my $CISearchPrefix       = $CISearchConfig->{Prefix}               || '';
+    my $CISearchSuffix       = $CISearchConfig->{Suffix}               || '';
+    my $CISearchDefaultClass = $CISearchConfig->{DefaultClassName}     || '';
 
-    # get all classes (code from AgentITSMConfigItemSearch.pm L.64-79)
+    # get all classes
     my $ClassList = $GeneralCatalogObject->ItemList(
         Class => 'ITSM::ConfigItem::Class',
     );
 
-    return if !$ClassList;
+    return if !IsHashRefWithData( $ClassList );
 
     # check for access rights on the classes
     for my $ClassID ( sort keys %{$ClassList} ) {
@@ -71,26 +64,22 @@ sub PreRun {
         delete $ClassList->{$ClassID} if !$HasAccess;
     }
 
-    # Check Class Count
+    return if !IsHashRefWithData( $ClassList );
 
-    my $ClassCount = keys %{$ClassList};
-    return if $ClassList <= 0;
-
-    my $JSONString = $JSONObject->Encode(
+    my $CIClassesJSON = $JSONObject->Encode(
         Data => $ClassList,
     );
 
     $LayoutObject->AddJSOnDocumentComplete(
         Code => <<ZNUNY,
-        //set defaults
 
+        //set defaults
         Core.Config.Set('CISearch.Label', '$CISearchLabel'  );
         Core.Config.Set('CISearch.Prefix', '$CISearchPrefix'  );
         Core.Config.Set('CISearch.Suffix', '$CISearchSuffix' );
         Core.Config.Set('CISearch.DefaultClassName', '$CISearchDefaultClass' );
-        var CIClasses = $JSONString;
-        Core.Agent.Znuny4OTRSCISearch.Init(CIClasses);
 
+        Core.Agent.Znuny4OTRSCISearch.Init($CIClassesJSON);
 ZNUNY
     );
     return;
