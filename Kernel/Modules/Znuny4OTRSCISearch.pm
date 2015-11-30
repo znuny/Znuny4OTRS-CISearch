@@ -53,6 +53,7 @@ sub PreRun {
     return if !IsHashRefWithData( $ClassList );
 
     # check for access rights on the classes
+    CLASSID:
     for my $ClassID ( sort keys %{$ClassList} ) {
         my $HasAccess = $ConfigItemObject->Permission(
             Type    => $Self->{Config}->{Permission},
@@ -61,7 +62,12 @@ sub PreRun {
             UserID  => $Self->{UserID},
         );
 
-        delete $ClassList->{$ClassID} if !$HasAccess;
+        if (!$HasAccess) {
+            delete $ClassList->{$ClassID};
+            next CLASSID;
+        }
+
+        $ClassList->{$ClassID} = $LanguageObject->Translate( $ClassList->{$ClassID} );
     }
 
     return if !IsHashRefWithData( $ClassList );
