@@ -29,18 +29,18 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
 
         // ugly but most performant
         var CISearchForm = '<li class="Extended SearchProfile">';
-        CISearchForm    += '<form id="CISearch" action="'+ OTRS.Config.Get('Baselink') +'" method="post">';
+        CISearchForm    += '<form id="CISearch" action="'+ Core.Config.Get('Baselink') +'" method="post">';
         CISearchForm    += '<select id="ClassID" name="ClassID" title="Class Selection" style="margin-right: 10px;">';
         CISearchForm    += '<option value="">-</option>';
 
         $.each(CIClasses, function (Key, Value) {
 
-            var $Selected = '';
+            var Selected = '';
             if(Value === DefaultClass) {
-                var $Selected = 'selected="selected"';
+                Selected = 'selected="selected"';
             }
 
-            CISearchForm += '<option value="'+ Value +'" '+ selected +'>'+ Key +'</option>';
+            CISearchForm += '<option value="'+ Key +'" '+ Selected +'>'+ Value +'</option>';
         });
 
         CISearchForm    += '</select>';
@@ -73,10 +73,10 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
 
             //Don't submit if no class is selected
             if (
-                !$("#CIClassSelection").val()
-                $("#CIClassSelection").val().length <= 0
+                !$("#ClassID").val()
+                || $("#ClassID").val().length <= 0
             ){
-                Event.preventDefault;
+                if(Event.preventDefault) Event.preventDefault(); else Event.returnValue = false;
             }
         });
 
