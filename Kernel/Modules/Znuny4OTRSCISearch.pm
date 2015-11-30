@@ -43,7 +43,7 @@ sub PreRun {
     my $CISearchLabel        = $LanguageObject->Translate('CI Search') || 'CI Search';
     my $CISearchPrefix       = $CISearchConfig->{Prefix}               || '';
     my $CISearchSuffix       = $CISearchConfig->{Suffix}               || '';
-    my $CISearchDefaultClass = $CISearchConfig->{DefaultClassName}     || '';
+    my $CISearchDefaultClass = $LanguageObject->Translate( $CISearchConfig->{DefaultClassName} || '' );
 
     # get all classes
     my $ClassList = $GeneralCatalogObject->ItemList(
