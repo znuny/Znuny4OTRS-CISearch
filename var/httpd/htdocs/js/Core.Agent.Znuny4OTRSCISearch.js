@@ -43,38 +43,38 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
             CISearchForm += '<option value="'+ Key +'" '+ Selected +'>'+ Value +'</option>';
         });
 
-        CISearchForm    += '</select>';
-        CISearchForm    += '<input type="text" size="20" name="SearchName" id="SearchName" value="" placeholder="'+CISearchLabel+'" title="'+CISearchLabel+'">';
-        CISearchForm    += '<input type="hidden" name="Action" value="AgentITSMConfigItemSearch">';
-        CISearchForm    += '<input type="hidden" name="Subaction" value="Search">';
-        CISearchForm    += '<input type="hidden" name="SearchDialog" value="1">';
-        CISearchForm    += '<input type="hidden" name="EmptySearch" value="">';
-        CISearchForm    += '<input type="hidden" name="Profile" value="last-search">';
-        CISearchForm    += '<input type="hidden" name="ProfileName" value="">';
-        CISearchForm    += '<input type="hidden" name="AttributeOrig" value="Name">';
-        CISearchForm    += '<input type="hidden" name="PreviousVersionSearch" value="0">';
-        CISearchForm    += '<input type="hidden" name="ResultForm" value="Normal">';
-        CISearchForm    += '<input type="hidden" name="Name" id="CIName" value="">';
-        CISearchForm    += '</form>';
-        CISearchForm    += '</li>';
+        CISearchForm += '</select>';
+        CISearchForm += '<input type="text" size="20" name="SearchName" id="SearchName" value="" placeholder="'+CISearchLabel+'" title="'+CISearchLabel+'">';
+        CISearchForm += '<input type="hidden" name="Action" value="AgentITSMConfigItemSearch">';
+        CISearchForm += '<input type="hidden" name="Subaction" value="Search">';
+        CISearchForm += '<input type="hidden" name="SearchDialog" value="1">';
+        CISearchForm += '<input type="hidden" name="EmptySearch" value="">';
+        CISearchForm += '<input type="hidden" name="Profile" value="last-search">';
+        CISearchForm += '<input type="hidden" name="ProfileName" value="">';
+        CISearchForm += '<input type="hidden" name="AttributeOrig" value="Name">';
+        CISearchForm += '<input type="hidden" name="PreviousVersionSearch" value="0">';
+        CISearchForm += '<input type="hidden" name="ResultForm" value="Normal">';
+        CISearchForm += '<input type="hidden" name="Name" id="CIName" value="">';
+        CISearchForm += '</form>';
+        CISearchForm += '</li>';
 
-        $("#ToolBar").append(CISearchForm);
+        $('#ToolBar').append(CISearchForm);
 
         // get config values for pre and suffix
         var Prefix = Core.Config.Get('CISearch.Prefix') || '';
         var Suffix = Core.Config.Get('CISearch.Suffix') || '';
 
         // register change event to pass the value from fulltext search box to the hidden name field
-        $("#SearchName").on("change paste keyup", function() {
-           $("#CIName").val(Prefix + $(this).val() + Suffix);
+        $('#SearchName').on("change paste keyup", function() {
+           $('#CIName').val(Prefix + $(this).val() + Suffix);
         });
 
-        $("#CISearch").submit(function( Event ) {
+        $('#CISearch').submit(function( Event ) {
 
             //Don't submit if no class is selected
             if (
-                !$("#ClassID").val()
-                || $("#ClassID").val().length <= 0
+                !$('#ClassID').val()
+                || $('#ClassID').val().length <= 0
             ){
                 if(Event.preventDefault) Event.preventDefault(); else Event.returnValue = false;
             }
