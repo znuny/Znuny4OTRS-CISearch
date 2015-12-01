@@ -2,13 +2,15 @@
 
 CI Search
 =================
-With this extention you will be able search for ITSM Config Items via an input field in the navigation bar in the agent interface.
+With this extension you will be able search for ITSM Config Items via an input field in the navigation bar in the agent interface.
 
 **Prerequisites**
 
 - Znuny4OTRS-Repo
 
 - OTRS 4.0
+
+- ITSMConfigurationManagement 
 
 **Installation**
 
@@ -26,5 +28,5 @@ Enjoy!
 
  Your Znuny Team!
 
- [http://znuny.com](http://znuny.com)
+ [http://znuny.com/](http://znuny.com/)
 
