@@ -18,10 +18,10 @@ sub Data {
     my $Self = shift;
 
     $Self->{Translation}->{'This configuration defines a default class name that is used for the CI search.'} = 'Diese Konfiguration definiert eine Standard CI Klasse, die für die CI Suche verwendent werden soll.';
-    $Self->{Translation}->{'This configuration defines a prefix that should be used for the CI search.'} = 'Diese Konfiguration definiert ein Prefix, das für die CI Suche verwendent werden soll.';
-    $Self->{Translation}->{'This configuration defines a suffix that should be used for the CI search.'} = 'Diese Konfiguration definiert ein Suffix, das für die CI Suche verwendent werden soll.';
+    $Self->{Translation}->{'This configuration defines a prefix that will be used for the CI search.'} = 'Diese Konfiguration definiert ein Prefix, das für die CI Suche verwendent werden soll.';
+    $Self->{Translation}->{'This configuration defines a suffix that will be used for the CI search.'} = 'Diese Konfiguration definiert ein Suffix, das für die CI Suche verwendent werden soll.';
     $Self->{Translation}->{'This configuration defines a PreApplication module to enable Znuny4OTRS-CISearch in all views.'} = 'Diese Konfiguration definiert ein PreApplication Modul, das die CI Suche in allen Ansichten aktiviert.';
-    $Self->{Translation}->{'List of JS files to always be loaded for the agent interface to enable the CI search functionality.'} = 'Liste aller JS Dateien die geladen werden um die CI Suche zu ermöglichen.';
+    $Self->{Translation}->{'List of all JS files which are loaded to provide the CI search for the agent interface.'} = 'Liste aller JS Dateien die geladen werden um die CI Suche zu ermöglichen.';
     $Self->{Translation}->{'CI Search'} = 'CI Suche';
 
     return 1;

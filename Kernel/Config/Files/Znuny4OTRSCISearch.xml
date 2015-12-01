@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <otrs_config version="1.0" init="Application">
     <ConfigItem Name="Loader::Agent::CommonJS###999-Znuny4OTRSCISearch" Required="0" Valid="1">
-        <Description Translatable="1">List of JS files to always be loaded for the agent interface to enable the CI search functionality.</Description>
+        <Description Translatable="1">List of all JS files which are loaded to provide the CI search for the agent interface.</Description>
         <Group>Znuny4OTRS-CISearch</Group>
         <SubGroup>Core::Web</SubGroup>
         <Setting>
@@ -19,7 +19,7 @@
         </Setting>
     </ConfigItem>
     <ConfigItem Name="Znuny4OTRSCISearch::SearchParams###Prefix" Required="1" Valid="1">
-        <Description Translatable="1">This configuration defines a prefix that should be used for the CI search.</Description>
+        <Description Translatable="1">This configuration defines a prefix that will be used for the CI search.</Description>
         <Group>Znuny4OTRS-CISearch</Group>
         <SubGroup>Core</SubGroup>
         <Setting>
@@ -27,7 +27,7 @@
         </Setting>
     </ConfigItem>
     <ConfigItem Name="Znuny4OTRSCISearch::SearchParams###Suffix" Required="1" Valid="1">
-        <Description Translatable="1">This configuration defines a suffix that should be used for the CI search.</Description>
+        <Description Translatable="1">This configuration defines a suffix that will be used for the CI search.</Description>
         <Group>Znuny4OTRS-CISearch</Group>
         <SubGroup>Core</SubGroup>
         <Setting>
