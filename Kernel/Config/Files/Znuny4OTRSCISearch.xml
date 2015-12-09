@@ -35,11 +35,17 @@
         </Setting>
     </ConfigItem>
     <ConfigItem Name="Znuny4OTRSCISearch::SearchParams###DefaultClassName" Required="1" Valid="1">
-        <Description Translatable="1">This configuration defines a default class name that is used for the CI search.</Description>
+        <Description Translatable="1">This configuration defines a mapping of role to class name that is used for the CI search.</Description>
         <Group>Znuny4OTRS-CISearch</Group>
         <SubGroup>Core</SubGroup>
         <Setting>
-            <String Regex="">Computer</String>
+            <Hash>
+                <Item Key="computerrole">Computer</Item>
+                <Item Key="hardwarerole">Hardware</Item>
+                <Item Key="locationrole">Location</Item>
+                <Item Key="networkrole">Network</Item>
+                <Item Key="softwarerole">Software</Item>
+            </Hash>
         </Setting>
     </ConfigItem>
 </otrs_config>

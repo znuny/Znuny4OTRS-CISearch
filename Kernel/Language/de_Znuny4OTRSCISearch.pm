@@ -17,7 +17,7 @@ use utf8;
 sub Data {
     my $Self = shift;
 
-    $Self->{Translation}->{'This configuration defines a default class name that is used for the CI search.'} = 'Diese Konfiguration definiert eine Standard CI Klasse, die für die CI Suche verwendent werden soll.';
+    $Self->{Translation}->{'This configuration defines a mapping of role to class name that is used for the CI search'} = 'Diese Konfiguration definiert eine Rollen-Klassen Zuordnung, die für die CI Suche verwendent werden soll.';
     $Self->{Translation}->{'This configuration defines a prefix that will be used for the CI search.'} = 'Diese Konfiguration definiert ein Prefix, das für die CI Suche verwendent werden soll.';
     $Self->{Translation}->{'This configuration defines a suffix that will be used for the CI search.'} = 'Diese Konfiguration definiert ein Suffix, das für die CI Suche verwendent werden soll.';
     $Self->{Translation}->{'This configuration defines a PreApplication module to enable Znuny4OTRS-CISearch in all views.'} = 'Diese Konfiguration definiert ein PreApplication Modul, das die CI Suche in allen Ansichten aktiviert.';

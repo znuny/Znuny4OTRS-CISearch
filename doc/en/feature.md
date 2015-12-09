@@ -20,4 +20,3 @@ This SysConfig defines an optional suffix which is used for every search.
 Defines a default CI class where to search.
 
 Hint: CI class names can be translated by OTRS!
-
