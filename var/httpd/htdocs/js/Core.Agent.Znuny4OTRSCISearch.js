@@ -55,6 +55,12 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
         CISearchForm += '<input type="hidden" name="PreviousVersionSearch" value="0">';
         CISearchForm += '<input type="hidden" name="ResultForm" value="Normal">';
         CISearchForm += '<input type="hidden" name="Name" id="CIName" value="">';
+
+        var SessionInformation = GetSessionInformation();
+         $.each(SessionInformation, function (Key, Value) {
+            CISearchForm += '<input type="hidden" name="' + Key + '" id="' + Key + '" value="' + Value + '">';
+        });
+
         CISearchForm += '</form>';
         CISearchForm += '</li>';
 
@@ -81,6 +87,16 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
         });
 
         return true;
+    }
+
+    function GetSessionInformation() {
+        var Data = {};
+        if (!Core.Config.Get('SessionIDCookie')) {
+            Data[Core.Config.Get('SessionName')] = Core.Config.Get('SessionID');
+            Data[Core.Config.Get('CustomerPanelSessionName')] = Core.Config.Get('SessionID');
+        }
+        Data.ChallengeToken = Core.Config.Get('ChallengeToken');
+        return Data;
     }
 
     return TargetNS;
