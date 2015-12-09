@@ -10,7 +10,7 @@ With this extension you will be able search for ITSM Config Items via an input f
 
 - OTRS 4.0
 
-- ITSMConfigurationManagement 
+- ITSMConfigurationManagement
 
 **Installation**
 
@@ -29,4 +29,3 @@ Enjoy!
  Your Znuny Team!
 
  [http://znuny.com/](http://znuny.com/)
-

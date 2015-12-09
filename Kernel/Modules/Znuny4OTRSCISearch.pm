@@ -37,12 +37,12 @@ sub PreRun {
     my $ConfigItemObject     = $Kernel::OM->Get('Kernel::System::ITSMConfigItem');
 
     # get config, just for the search
-    $Self->{Config}    = $ConfigObject->Get("ITSMConfigItem::Frontend::AgentITSMConfigItemSearch");
+    $Self->{Config} = $ConfigObject->Get("ITSMConfigItem::Frontend::AgentITSMConfigItemSearch");
     my $CISearchConfig = $ConfigObject->Get("Znuny4OTRSCISearch::SearchParams") || '';
 
-    my $CISearchLabel        = $LanguageObject->Translate('CI Search') || 'CI Search';
-    my $CISearchPrefix       = $CISearchConfig->{Prefix}               || '';
-    my $CISearchSuffix       = $CISearchConfig->{Suffix}               || '';
+    my $CISearchLabel  = $LanguageObject->Translate('CI Search') || 'CI Search';
+    my $CISearchPrefix = $CISearchConfig->{Prefix}               || '';
+    my $CISearchSuffix = $CISearchConfig->{Suffix}               || '';
     my $CISearchDefaultClass = $LanguageObject->Translate( $CISearchConfig->{DefaultClassName} || '' );
 
     # get all classes
@@ -50,7 +50,7 @@ sub PreRun {
         Class => 'ITSM::ConfigItem::Class',
     );
 
-    return if !IsHashRefWithData( $ClassList );
+    return if !IsHashRefWithData($ClassList);
 
     # check for access rights on the classes
     CLASSID:
@@ -62,7 +62,7 @@ sub PreRun {
             UserID  => $Self->{UserID},
         );
 
-        if (!$HasAccess) {
+        if ( !$HasAccess ) {
             delete $ClassList->{$ClassID};
             next CLASSID;
         }
@@ -70,11 +70,30 @@ sub PreRun {
         $ClassList->{$ClassID} = $LanguageObject->Translate( $ClassList->{$ClassID} );
     }
 
-    return if !IsHashRefWithData( $ClassList );
+    return if !IsHashRefWithData($ClassList);
 
     my $CIClassesJSON = $JSONObject->Encode(
         Data => $ClassList,
     );
+
+    my %Roles = $Kernel::OM->Get('Kernel::System::Group')->GroupUserRoleMemberList(
+        UserID => $Self->{UserID},
+        Result => 'HASH',
+    );
+
+    return if !IsHashRefWithData( \%Roles );
+    %Roles = reverse %Roles;
+
+    my $DefaultClass;
+    ROLES:
+    for my $Role ( sort keys $CISearchConfig->{DefaultClassName} ) {
+        if ( IsNumber( $Roles{$Role} ) ) {
+
+            $DefaultClass = $CISearchConfig->{DefaultClassName}{$Role};
+            $DefaultClass = $Kernel::OM->Get('Kernel::Language')->Translate($DefaultClass);
+            last ROLES;
+        }
+    }
 
     $LayoutObject->AddJSOnDocumentComplete(
         Code => <<ZNUNY,
@@ -85,7 +104,7 @@ sub PreRun {
         Core.Config.Set('CISearch.Suffix', '$CISearchSuffix' );
         Core.Config.Set('CISearch.DefaultClassName', '$CISearchDefaultClass' );
 
-        Core.Agent.Znuny4OTRSCISearch.Init($CIClassesJSON);
+        Core.Agent.Znuny4OTRSCISearch.Init($CIClassesJSON,'$DefaultClass');
 ZNUNY
     );
     return;

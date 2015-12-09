@@ -8,6 +8,7 @@
     <Framework>4.0.x</Framework>
     <PackageRequired Version="2.0.20">Znuny4OTRS-Repo</PackageRequired>
     <PackageRequired Version="4.0.1">ITSMConfigurationManagement</PackageRequired>
+    <PackageRequired Version="4.0.0">GeneralCatalog</PackageRequired>
     <Vendor>Znuny GmbH</Vendor>
     <URL>http://znuny.com/</URL>
     <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
