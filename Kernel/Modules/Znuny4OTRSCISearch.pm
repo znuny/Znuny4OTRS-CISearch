@@ -85,14 +85,13 @@ sub PreRun {
     %Roles = reverse %Roles;
 
     my $DefaultClass;
-    ROLES:
+    GROUP:
     for my $Role ( sort keys $CISearchConfig->{DefaultClassName} ) {
-        if ( IsNumber( $Roles{$Role} ) ) {
+        next GROUP if !IsNumber( $Roles{$Role} );
 
-            $DefaultClass = $CISearchConfig->{DefaultClassName}{$Role};
-            $DefaultClass = $Kernel::OM->Get('Kernel::Language')->Translate($DefaultClass);
-            last ROLES;
-        }
+        $DefaultClass = $CISearchConfig->{DefaultClassName}->{$Role};
+        $DefaultClass = $Kernel::OM->Get('Kernel::Language')->Translate($DefaultClass);
+        last GROUP;
     }
 
     $LayoutObject->AddJSOnDocumentComplete(
