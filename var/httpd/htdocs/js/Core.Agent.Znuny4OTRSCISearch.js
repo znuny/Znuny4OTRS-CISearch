@@ -24,7 +24,7 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
     TargetNS.Init = function ( CIClasses, DefaultClass ) {
 
         // get default class, if given
-        var CISearchLabel = Core.Config.Get('CISearch.Label')            || ' CI Search';
+        var CISearchLabel = Core.Config.Get('CISearch.Label') || ' CI Search';
         var DefaultClass = DefaultClass || '';
 
         // ugly but most performant
