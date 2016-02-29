@@ -34,17 +34,20 @@
             <String Regex="">*</String>
         </Setting>
     </ConfigItem>
-    <ConfigItem Name="Znuny4OTRSCISearch::SearchParams###DefaultClassName" Required="1" Valid="1">
-        <Description Translatable="1">This configuration defines a mapping of role to class name that is used for the CI search.</Description>
+    <ConfigItem Name="Znuny4OTRSCISearch::SearchParams###FallbackDefaultClassName" Required="1" Valid="1">
+        <Description Translatable="1">This configuration defines a global default class that will be used for the CI search if no other class can not get determined.</Description>
+        <Group>Znuny4OTRS-CISearch</Group>
+        <SubGroup>Core</SubGroup>
+        <Setting>
+            <String Regex="">Computer</String>
+        </Setting>
+    </ConfigItem>
+    <ConfigItem Name="Znuny4OTRSCISearch::SearchParams###DefaultClassName" Required="0" Valid="0">
+        <Description Translatable="1">This configuration defines a mapping of role to class name that is used as default class for the CI search.</Description>
         <Group>Znuny4OTRS-CISearch</Group>
         <SubGroup>Core</SubGroup>
         <Setting>
             <Hash>
-                <Item Key="computerrole">Computer</Item>
-                <Item Key="hardwarerole">Hardware</Item>
-                <Item Key="locationrole">Location</Item>
-                <Item Key="networkrole">Network</Item>
-                <Item Key="softwarerole">Software</Item>
             </Hash>
         </Setting>
     </ConfigItem>
