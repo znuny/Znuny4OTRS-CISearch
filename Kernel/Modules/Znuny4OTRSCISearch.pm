@@ -1,6 +1,6 @@
 # --
 # Kernel/Modules/Znuny4OTRSCISearch.pm - PreApplication
-# Copyright (C) 2012-2015 Znuny GmbH, http://znuny.com/
+# Copyright (C) 2012-2016 Znuny GmbH, http://znuny.com/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY. For details, see
 # the enclosed file COPYING for license information (AGPL). If you
@@ -35,6 +35,7 @@ sub PreRun {
     my $LayoutObject         = $Kernel::OM->Get('Kernel::Output::HTML::Layout');
     my $GeneralCatalogObject = $Kernel::OM->Get('Kernel::System::GeneralCatalog');
     my $ConfigItemObject     = $Kernel::OM->Get('Kernel::System::ITSMConfigItem');
+    my $GroupObject          = $Kernel::OM->Get('Kernel::System::Group');
 
     # get config, just for the search
     $Self->{Config} = $ConfigObject->Get("ITSMConfigItem::Frontend::AgentITSMConfigItemSearch");
@@ -76,22 +77,29 @@ sub PreRun {
         Data => $ClassList,
     );
 
-    my %Roles = $Kernel::OM->Get('Kernel::System::Group')->GroupUserRoleMemberList(
-        UserID => $Self->{UserID},
-        Result => 'HASH',
-    );
+    # set FallbackDefaultClassName if no other DefaultClass can't get determined by roles
+    my $DefaultClass = $CISearchConfig->{FallbackDefaultClassName};
 
-    return if !IsHashRefWithData( \%Roles );
-    %Roles = reverse %Roles;
+    if ( IsHashRefWithData( $CISearchConfig->{DefaultClassName} ) ) {
 
-    my $DefaultClass;
-    GROUP:
-    for my $Role ( sort keys $CISearchConfig->{DefaultClassName} ) {
-        next GROUP if !IsNumber( $Roles{$Role} );
+        # get role member list
+        my %Roles = $GroupObject->GroupUserRoleMemberList(
+            UserID => $Self->{UserID},
+            Result => 'HASH',
+        );
 
-        $DefaultClass = $CISearchConfig->{DefaultClassName}->{$Role};
-        $DefaultClass = $Kernel::OM->Get('Kernel::Language')->Translate($DefaultClass);
-        last GROUP;
+        if ( IsHashRefWithData( \%Roles ) ) {
+            %Roles = reverse %Roles;
+
+            GROUP:
+            for my $Role ( sort keys $CISearchConfig->{DefaultClassName} ) {
+                next GROUP if !IsNumber( $Roles{$Role} );
+
+                $DefaultClass = $CISearchConfig->{DefaultClassName}->{$Role};
+                $DefaultClass = $Kernel::OM->Get('Kernel::Language')->Translate($DefaultClass);
+                last GROUP;
+            }
+        }
     }
 
     $LayoutObject->AddJSOnDocumentComplete(
