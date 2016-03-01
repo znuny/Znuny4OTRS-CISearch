@@ -92,7 +92,7 @@ sub PreRun {
             %Roles = reverse %Roles;
 
             GROUP:
-            for my $Role ( sort keys $CISearchConfig->{DefaultClassName} ) {
+            for my $Role ( sort keys %{ $CISearchConfig->{DefaultClassName} } ) {
                 next GROUP if !IsNumber( $Roles{$Role} );
 
                 $DefaultClass = $CISearchConfig->{DefaultClassName}->{$Role};
@@ -110,7 +110,7 @@ Core.Agent.Znuny4OTRSCISearch.Init({
     Suffix:       '$CISearchSuffix',
     CIClasses:    $CIClassesJSON,
     DefaultClass: '$DefaultClass'
-);
+});
 ZNUNY
     );
     return;

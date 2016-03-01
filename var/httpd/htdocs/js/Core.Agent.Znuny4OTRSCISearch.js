@@ -116,4 +116,4 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
     }
 
     return TargetNS;
-}(Core.Agent.Znuny4OTRSCISearch || {});
+}(Core.Agent.Znuny4OTRSCISearch || {}));
