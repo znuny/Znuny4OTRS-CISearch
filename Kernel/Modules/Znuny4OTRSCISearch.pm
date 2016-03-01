@@ -96,22 +96,21 @@ sub PreRun {
                 next GROUP if !IsNumber( $Roles{$Role} );
 
                 $DefaultClass = $CISearchConfig->{DefaultClassName}->{$Role};
-                $DefaultClass = $Kernel::OM->Get('Kernel::Language')->Translate($DefaultClass);
                 last GROUP;
             }
         }
     }
+    $DefaultClass = $Kernel::OM->Get('Kernel::Language')->Translate($DefaultClass);
 
     $LayoutObject->AddJSOnDocumentComplete(
         Code => <<ZNUNY,
-
-        //set defaults
-        Core.Config.Set('CISearch.Label', '$CISearchLabel'  );
-        Core.Config.Set('CISearch.Prefix', '$CISearchPrefix'  );
-        Core.Config.Set('CISearch.Suffix', '$CISearchSuffix' );
-        Core.Config.Set('CISearch.DefaultClassName', '$CISearchDefaultClass' );
-
-        Core.Agent.Znuny4OTRSCISearch.Init($CIClassesJSON,'$DefaultClass');
+Core.Agent.Znuny4OTRSCISearch.Init({
+    Label:        '$CISearchLabel',
+    Prefix:       '$CISearchPrefix',
+    Suffix:       '$CISearchSuffix',
+    CIClasses:    $CIClassesJSON,
+    DefaultClass: '$DefaultClass'
+);
 ZNUNY
     );
     return;
