@@ -21,11 +21,22 @@ Core.Agent = Core.Agent || {};
  */
 Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
 
-    TargetNS.Init = function ( CIClasses, DefaultClass ) {
+    TargetNS.Init = function ( Param ) {
+
+        var ParamCheckSuccess = true;
+        $.each( [ 'CIClasses' ], function (Index, ParameterName) {
+            if ( typeof Param[ ParameterName ] === 'undefined' ) {
+                ParamCheckSuccess = false;
+                // console.log("ERROR: Parameter '"+ ParameterName +"' is missing in Init call.");
+            }
+        });
+        if ( !ParamCheckSuccess ) {
+            return false;
+        }
 
         // get default class, if given
-        var CISearchLabel = Core.Config.Get('CISearch.Label') || ' CI Search';
-        var DefaultClass = DefaultClass || '';
+        var CISearchLabel = Param.Label        || ' CI Search';
+        var DefaultClass  = Param.DefaultClass || '';
 
         // ugly but most performant
         var CISearchForm = '<li class="Extended SearchProfile">';
@@ -33,7 +44,7 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
         CISearchForm    += '<select id="ClassID" name="ClassID" title="Class Selection" style="margin-right: 10px;">';
         CISearchForm    += '<option value="">-</option>';
 
-        $.each(CIClasses, function (Key, Value) {
+        $.each(Param.CIClasses, function (Key, Value) {
 
             var Selected = '';
             if(Value === DefaultClass) {
@@ -67,8 +78,8 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
         $('#ToolBar').append(CISearchForm);
 
         // get config values for pre and suffix
-        var Prefix = Core.Config.Get('CISearch.Prefix') || '';
-        var Suffix = Core.Config.Get('CISearch.Suffix') || '';
+        var Prefix = Param.Prefix || '';
+        var Suffix = Param.Suffix || '';
 
         // register change event to pass the value from fulltext search box to the hidden name field
         $('#SearchName').on("change paste keyup", function() {
@@ -82,7 +93,12 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
                 !$('#ClassID').val()
                 || $('#ClassID').val().length <= 0
             ){
-                if(Event.preventDefault) Event.preventDefault(); else Event.returnValue = false;
+                if (Event.preventDefault) {
+                    Event.preventDefault();
+                }
+                else {
+                    Event.returnValue = false;
+                }
             }
         });
 
@@ -100,4 +116,4 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
     }
 
     return TargetNS;
-}(Core.Agent.Znuny4OTRSCISearch || {}));
+}(Core.Agent.Znuny4OTRSCISearch || {});
