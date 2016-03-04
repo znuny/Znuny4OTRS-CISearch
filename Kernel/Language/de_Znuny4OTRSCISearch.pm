@@ -25,6 +25,8 @@ sub Data {
     $Self->{Translation}->{'CI Search'} = 'CI Suche';
     $Self->{Translation}->{'This configuration defines a global default class that will be used for the CI search if no other class can not get determined.'} = 'Diese Konfiguration definiert eine globale Standard-Klasse, welche für die CI-Suche genutzt wird, wenn kein andere Klasse bestimmt werden konnte.';
     $Self->{Translation}->{'This configuration defines a mapping of role to class name that is used as default class for the CI search.'} = 'Diese Konfiguration definiert ein Mapping zwischen Rollen zu Klassen-Namen welche für die CI-Suche als Standard-Klasse genutzt wird.';
+    $Self->{Translation}->{'CISearch Default ClassName'} = 'CI Suche Standard-Klasse';
+    $Self->{Translation}->{'Default ClassName'} = 'Standard-Klasse';
 
     return 1;
 }

@@ -36,6 +36,7 @@ sub PreRun {
     my $GeneralCatalogObject = $Kernel::OM->Get('Kernel::System::GeneralCatalog');
     my $ConfigItemObject     = $Kernel::OM->Get('Kernel::System::ITSMConfigItem');
     my $GroupObject          = $Kernel::OM->Get('Kernel::System::Group');
+    my $UserObject           = $Kernel::OM->Get('Kernel::System::User');
 
     # get config, just for the search
     $Self->{Config} = $ConfigObject->Get("ITSMConfigItem::Frontend::AgentITSMConfigItemSearch");
@@ -100,7 +101,18 @@ sub PreRun {
             }
         }
     }
-    $DefaultClass = $Kernel::OM->Get('Kernel::Language')->Translate($DefaultClass);
+
+    # get user preference
+    my %Preferences = $UserObject->GetPreferences(
+        UserID => $Self->{UserID},
+    );
+
+    # set CISearchDefaultClassName
+    if (IsStringWithData($Preferences{CISearchDefaultClassName})){
+        $DefaultClass = $Preferences{CISearchDefaultClassName};
+    }
+
+    $DefaultClass = $LanguageObject->Translate($DefaultClass);
 
     $LayoutObject->AddJSOnDocumentComplete(
         Code => <<ZNUNY,
