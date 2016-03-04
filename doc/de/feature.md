@@ -3,6 +3,10 @@
 Im OTRS Standard ist es nicht möglich über die Toolbar Config Items zu suchen. Diese Erweiterung erlaubt es in allen Config Item Klassen zu suchen, für die man berechtig ist.
 Dafür wird ein Dropdown Feld mit Config Item Klassen und ein Suchfeld für den Namen des Config Items zur Toolbar hinzugefügt. Dieses ist in allen Ansichten des AgentenInterface sichtbar.
 
+## Persönliche Einstellungen
+
+In den persönlichen Einstellungen kann die "CI Suche Standard-Klasse" ausgewählt werden.
+
 ## SysConfig Einstellungen
 
 Die Erweiterung kann mit drei SysConfig Einstellungen konfiguriert werden:

@@ -3,6 +3,10 @@
 A default OTRS setup does not allow you to search for configuration items with an inmput field in the toolbar.
 This addon adds such an input field and enables you to search for CIs. Choose the CI class where to search from a select field and enter a search term into the input field. Both fields are avaiable in all views of the agent interface.
 
+## User Preferences
+
+Define 'CISearch Default ClassName' in your user preferences.
+
 ## SysConfig settings
 
 There are three SysConfig settings available:
