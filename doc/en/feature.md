@@ -43,7 +43,11 @@ Here's an example:
 Role-Name  =>  Class-Name
 
 computerrole => Computer
+
 hardwarerole => Hardware
+
 locationrole => Location
+
 networkrole  => Network
+
 softwarerole => Software

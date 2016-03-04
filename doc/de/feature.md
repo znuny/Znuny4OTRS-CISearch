@@ -36,7 +36,11 @@ Hier ein Beispiel:
 Rollen-Name  =>  Klassen-Name
 
 computerrole => Computer
+
 hardwarerole => Hardware
+
 locationrole => Location
+
 networkrole  => Network
+
 softwarerole => Software
