@@ -1,6 +1,6 @@
 # --
 # Kernel/Output/HTML/PreferencesZnuny4OTRSCISearch.pm
-# Copyright (C) 2001-2015 OTRS AG, http://otrs.com/
+# Copyright (C) 2012-2016 Znuny GmbH, http://znuny.com/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY. For details, see
 # the enclosed file COPYING for license information (AGPL). If you
@@ -11,6 +11,10 @@ package Kernel::Output::HTML::PreferencesZnuny4OTRSCISearch;
 
 use strict;
 use warnings;
+
+our @ObjectDependencies = (
+    'Kernel::System::GeneralCatalog',
+);
 
 sub new {
     my ( $Type, %Param ) = @_;
@@ -26,12 +30,12 @@ sub Param {
     my ( $Self, %Param ) = @_;
 
     my $GeneralCatalogObject = $Kernel::OM->Get('Kernel::System::GeneralCatalog');
-    my $ClassList = $GeneralCatalogObject->ItemList(
-        Class         => 'ITSM::ConfigItem::Class',
+    my $ClassList            = $GeneralCatalogObject->ItemList(
+        Class => 'ITSM::ConfigItem::Class',
     );
 
-    my %ReverseClasslist = reverse %{ $ClassList };
-    for my $Class ( sort keys %ReverseClasslist ){
+    my %ReverseClasslist = reverse %{$ClassList};
+    for my $Class ( sort keys %ReverseClasslist ) {
         $ReverseClasslist{$Class} = $Class;
     }
 
@@ -59,9 +63,6 @@ sub Run {
     for my $Key ( sort keys %{ $Param{GetParam} } ) {
         my @Array = @{ $Param{GetParam}->{$Key} };
         for (@Array) {
-
-use Data::Dumper;
-print STDERR 'Debug Dump  - @Array = ' . Dumper(\@Array) . "\n";
 
             # pref update db
             if ( !$Self->{ConfigObject}->Get('DemoSystem') ) {

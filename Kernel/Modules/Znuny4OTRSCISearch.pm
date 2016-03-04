@@ -108,7 +108,7 @@ sub PreRun {
     );
 
     # set CISearchDefaultClassName
-    if (IsStringWithData($Preferences{CISearchDefaultClassName})){
+    if ( IsStringWithData( $Preferences{CISearchDefaultClassName} ) ) {
         $DefaultClass = $Preferences{CISearchDefaultClassName};
     }
 
