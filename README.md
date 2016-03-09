@@ -8,7 +8,7 @@ With this extension you will be able search for ITSM Config Items via an input f
 
 - Znuny4OTRS-Repo
 
-- OTRS 4.0
+- OTRS 5
 
 - ITSMConfigurationManagement
 
