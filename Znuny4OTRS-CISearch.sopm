@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <otrs_package version="1.0">
     <Name>Znuny4OTRS-CISearch</Name>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
+    <ChangeLog Version="1.0.5" Date="2016-03-04 14:08:57 UTC">Added DefaultClassName to user preferences, added FallbackDefaultClassName ,  improved default CI Search class configuration and improved the documentaion.</ChangeLog>
     <ChangeLog Version="1.0.4" Date="2015-12-09 16:02:34 UTC">- Added role class mapping for default class selection.&#13;
 - Fixed bug: Missing SessionID in form causes re-login.</ChangeLog>
     <ChangeLog Version="1.0.3" Date="2015-11-30 12:08:23 UTC">Follow up: Added translation of class names.</ChangeLog>
