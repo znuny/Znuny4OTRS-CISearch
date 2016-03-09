@@ -7,10 +7,10 @@
     <ChangeLog Version="1.0.3" Date="2015-11-30 12:08:23 UTC">Follow up: Added translation of class names.</ChangeLog>
     <ChangeLog Version="1.0.2" Date="2015-11-30 12:07:26 UTC">Added translation of class names.</ChangeLog>
     <ChangeLog Version="1.0.1" Date="2015-11-30 11:49:56 UTC">Initial version.</ChangeLog>
-    <Framework>4.0.x</Framework>
-    <PackageRequired Version="2.0.20">Znuny4OTRS-Repo</PackageRequired>
-    <PackageRequired Version="4.0.1">ITSMConfigurationManagement</PackageRequired>
-    <PackageRequired Version="4.0.0">GeneralCatalog</PackageRequired>
+    <Framework>5.0.x</Framework>
+    <PackageRequired Version="3.0.10">Znuny4OTRS-Repo</PackageRequired>
+    <PackageRequired Version="5.0.0">ITSMConfigurationManagement</PackageRequired>
+    <PackageRequired Version="5.0.0">GeneralCatalog</PackageRequired>
     <Vendor>Znuny GmbH</Vendor>
     <URL>http://znuny.com/</URL>
     <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
@@ -20,7 +20,7 @@
         <File Permission="644" Location="Kernel/Config/Files/Znuny4OTRSCISearch.xml"/>
         <File Permission="644" Location="Kernel/Language/de_Znuny4OTRSCISearch.pm"/>
         <File Permission="644" Location="Kernel/Modules/Znuny4OTRSCISearch.pm"/>
-        <File Permission="644" Location="Kernel/Output/HTML/PreferencesZnuny4OTRSCISearch.pm"/>
+        <File Permission="644" Location="Kernel/Output/HTML/Preferences/Znuny4OTRSCISearch.pm"/>
         <File Permission="644" Location="var/httpd/htdocs/js/Core.Agent.Znuny4OTRSCISearch.js"/>
     </Filelist>
 </otrs_package>

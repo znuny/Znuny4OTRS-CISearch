@@ -1,5 +1,4 @@
 # --
-# Kernel/Output/HTML/PreferencesZnuny4OTRSCISearch.pm
 # Copyright (C) 2012-2016 Znuny GmbH, http://znuny.com/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY. For details, see
@@ -7,13 +6,18 @@
 # did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
 # --
 
-package Kernel::Output::HTML::PreferencesZnuny4OTRSCISearch;
+package Kernel::Output::HTML::Preferences::Znuny4OTRSCISearch;
 
 use strict;
 use warnings;
 
 our @ObjectDependencies = (
+    'Kernel::Config',
+    'Kernel::Output::HTML::Layout',
+    'Kernel::System::AuthSession',
     'Kernel::System::GeneralCatalog',
+    'Kernel::System::User',
+    'Kernel::System::Web::Request',
 );
 
 sub new {
@@ -30,7 +34,10 @@ sub Param {
     my ( $Self, %Param ) = @_;
 
     my $GeneralCatalogObject = $Kernel::OM->Get('Kernel::System::GeneralCatalog');
-    my $ClassList            = $GeneralCatalogObject->ItemList(
+    my $LayoutObject         = $Kernel::OM->Get('Kernel::Output::HTML::Layout');
+    my $ParamObject          = $Kernel::OM->Get('Kernel::System::Web::Request');
+
+    my $ClassList = $GeneralCatalogObject->ItemList(
         Class => 'ITSM::ConfigItem::Class',
     );
 
@@ -47,9 +54,9 @@ sub Param {
             Name       => $Self->{ConfigItem}->{PrefKey},
             Data       => \%ReverseClasslist,
             HTMLQuote  => 0,
-            SelectedID => $Self->{ParamObject}->GetParam( Param => 'CISearchDefaultClassName' )
+            SelectedID => $ParamObject->GetParam( Param => 'CISearchDefaultClassName' )
                 || $Param{UserData}->{CISearchDefaultClassName}
-                || $Self->{LayoutObject}->{CISearchDefaultClassName},
+                || $LayoutObject->{CISearchDefaultClassName},
             Block => 'Option',
             Max   => 100,
         },
@@ -60,13 +67,17 @@ sub Param {
 sub Run {
     my ( $Self, %Param ) = @_;
 
+    my $ConfigObject  = $Kernel::OM->Get('Kernel::Config');
+    my $SessionObject = $Kernel::OM->Get('Kernel::System::AuthSession');
+    my $UserObject    = $Kernel::OM->Get('Kernel::System::User');
+
     for my $Key ( sort keys %{ $Param{GetParam} } ) {
         my @Array = @{ $Param{GetParam}->{$Key} };
         for (@Array) {
 
             # pref update db
-            if ( !$Self->{ConfigObject}->Get('DemoSystem') ) {
-                $Self->{UserObject}->SetPreferences(
+            if ( !$ConfigObject->Get('DemoSystem') ) {
+                $UserObject->SetPreferences(
                     UserID => $Param{UserData}->{UserID},
                     Key    => $Key,
                     Value  => $_,
@@ -75,7 +86,7 @@ sub Run {
 
             # update SessionID
             if ( $Param{UserData}->{UserID} eq $Self->{UserID} ) {
-                $Self->{SessionObject}->UpdateSessionID(
+                $SessionObject->UpdateSessionID(
                     SessionID => $Self->{SessionID},
                     Key       => $Key,
                     Value     => $_,

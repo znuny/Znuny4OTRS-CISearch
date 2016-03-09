@@ -57,7 +57,7 @@
         <SubGroup>Frontend::Agent::Preferences</SubGroup>
         <Setting>
             <Hash>
-                <Item Key="Module">Kernel::Output::HTML::PreferencesZnuny4OTRSCISearch</Item>
+                <Item Key="Module">Kernel::Output::HTML::Preferences::Znuny4OTRSCISearch</Item>
                 <Item Key="Column">Other Settings</Item>
                 <Item Key="Label" Translatable="1">CISearch Default ClassName</Item>
                 <Item Key="Key" Translatable="1">Default ClassName</Item>
