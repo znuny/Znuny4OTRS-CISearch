@@ -75,6 +75,7 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
         CISearchForm += '</li>';
 
         $('#ToolBar').append(CISearchForm);
+        Core.Agent.ResizeNavigationBar(1);
 
         // get config values for pre and suffix
         var Prefix = Param.Prefix || '';
