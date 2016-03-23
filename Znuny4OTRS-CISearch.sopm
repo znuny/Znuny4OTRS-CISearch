@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <otrs_package version="1.0">
     <Name>Znuny4OTRS-CISearch</Name>
-    <Version>1.0.4</Version>
+    <Version>1.0.6</Version>
+    <ChangeLog Version="1.0.6" Date="2016-03-23 08:35:44 UTC">Added Core.Agent.ResizeNavigationBar(1); to resize the navigation.</ChangeLog>
     <ChangeLog Version="1.0.4" Date="2015-12-09 16:02:34 UTC">- Added role class mapping for default class selection.&#13;
 - Fixed bug: Missing SessionID in form causes re-login.</ChangeLog>
     <ChangeLog Version="1.0.3" Date="2015-11-30 12:08:23 UTC">Follow up: Added translation of class names.</ChangeLog>
