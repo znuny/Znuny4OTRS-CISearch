@@ -40,7 +40,7 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
         // ugly but most performant
         var CISearchForm = '<li class="Extended SearchProfile">';
         CISearchForm    += '<form id="CISearch" action="'+ Core.Config.Get('Baselink') +'" method="post">';
-        CISearchForm    += '<select id="ClassID" name="ClassID" title="Class Selection" style="margin-right: 10px;">';
+        CISearchForm    += '<select id="ClassID" name="ClassID" class="Modernize" data-tree="true" title="Class Selection" style="margin-right: 10px;">';
         CISearchForm    += '<option value="">-</option>';
 
         $.each(Param.CIClasses, function (Key, Value) {
@@ -75,7 +75,17 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
         CISearchForm += '</li>';
 
         $('#ToolBar').append(CISearchForm);
+
+        // add class visible-screenXL if resposive template is not aktivate.
+        if (!Core.App.Responsive.IsTouchDevice() ) {
+            $('body').addClass('Visible-ScreenXL');
+        }
+        // resize navigationbar after adding new inputfield
         Core.Agent.ResizeNavigationBar(1);
+
+        // initialising modernize and add margin-right to inputfield
+        Core.UI.InputFields.InitSelect($('select.Modernize'));
+        $("#CISearch > div > div").css("margin-right","10px");
 
         // get config values for pre and suffix
         var Prefix = Param.Prefix || '';
@@ -101,7 +111,6 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
                 }
             }
         });
-
         return true;
     }
 
