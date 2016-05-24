@@ -40,7 +40,7 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
         // ugly but most performant
         var CISearchForm = '<li class="Extended SearchProfile">';
         CISearchForm    += '<form id="CISearch" action="'+ Core.Config.Get('Baselink') +'" method="post">';
-        CISearchForm    += '<select id="ClassID" name="ClassID" class="Modernize" data-tree="true" title="Class Selection" style="margin-right: 10px;">';
+        CISearchForm    += '<select id="ClassID" name="ClassID" class="Modernize" title="Class Selection" style="margin-right: 10px;">';
         CISearchForm    += '<option value="">-</option>';
 
         $.each(Param.CIClasses, function (Key, Value) {
@@ -76,7 +76,7 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
 
         $('#ToolBar').append(CISearchForm);
 
-        // add class visible-screenXL if resposive template is not aktivate.
+        // add class visible-screenXL if resposive template is not activate.
         if (!Core.App.Responsive.IsTouchDevice() ) {
             $('body').addClass('Visible-ScreenXL');
         }
