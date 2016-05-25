@@ -36,6 +36,7 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
         // get default class, if given
         var CISearchLabel = Param.Label        || ' CI Search';
         var DefaultClass  = Param.DefaultClass || '';
+        var DefaultClassKey;
 
         // ugly but most performant
         var CISearchForm = '<li class="Extended SearchProfile">';
@@ -48,6 +49,9 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
             var Selected = '';
             if(Value === DefaultClass) {
                 Selected = 'selected="selected"';
+
+                // get key of DefaultClass
+                DefaultClassKey = Key;
             }
 
             CISearchForm += '<option value="'+ Key +'" '+ Selected +'>'+ Value +'</option>';
@@ -96,8 +100,14 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
            $('#CIName').val(Prefix + $(this).val() + Suffix);
         });
 
+        // submit function via 'enter'
         $('#CISearch').keypress(function (Event) {
             if (Event.which != 13) return;
+
+            // if no ClassID is selected use default value
+            if($("#ClassID").val() === '') {
+                $("#ClassID").val(DefaultClassKey);
+            }
 
             //Don't submit if no class is selected
             if (
