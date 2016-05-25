@@ -73,6 +73,7 @@ sub Run {
 
     for my $Key ( sort keys %{ $Param{GetParam} } ) {
         my @Array = @{ $Param{GetParam}->{$Key} };
+        PREFERENCES:
         for (@Array) {
 
             # pref update db
@@ -85,13 +86,13 @@ sub Run {
             }
 
             # update SessionID
-            if ( $Param{UserData}->{UserID} eq $Self->{UserID} ) {
-                $SessionObject->UpdateSessionID(
-                    SessionID => $Self->{SessionID},
-                    Key       => $Key,
-                    Value     => $_,
-                );
-            }
+            next PREFERENCES if $Param{UserData}->{UserID} ne $Self->{UserID};
+
+            $SessionObject->UpdateSessionID(
+                SessionID => $Self->{SessionID},
+                Key       => $Key,
+                Value     => $_,
+            );
         }
     }
     $Self->{Message} = 'Preferences updated successfully!';
