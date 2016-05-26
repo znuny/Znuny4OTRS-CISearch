@@ -87,7 +87,9 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
         Core.Agent.ResizeNavigationBar(1);
 
         // initialising modernize and add margin-right to inputfield
-        Core.UI.InputFields.InitSelect($('select.Modernize'));
+        if (Core.Config.Get('InputFieldsActivated') === 1) {
+            Core.UI.InputFields.InitSelect($('select.Modernize'));
+        }
         $("#CISearch > div > div").css("margin-right","10px");
 
         // get config values for pre and suffix
