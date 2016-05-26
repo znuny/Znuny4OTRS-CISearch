@@ -42,7 +42,6 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
         var CISearchForm = '<li class="Extended SearchProfile">';
         CISearchForm    += '<form id="CISearch" action="'+ Core.Config.Get('Baselink') +'" method="post">';
         CISearchForm    += '<select id="ClassID" name="ClassID" class="Modernize" title="Class Selection" style="margin-right: 10px;">';
-        CISearchForm    += '<option value="">-</option>';
 
         $.each(Param.CIClasses, function (Key, Value) {
 
