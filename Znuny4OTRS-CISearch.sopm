@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <otrs_package version="1.0">
     <Name>Znuny4OTRS-CISearch</Name>
-    <Version>1.1.1</Version>
+    <Version>1.1.2</Version>
+    <ChangeLog Version="1.1.2" Date="2016-05-27 12:45:50 UTC">Fixed bug: Unusable Icons #5&#13;
+Modernized input field.</ChangeLog>
     <ChangeLog Version="1.1.1" Date="2016-03-23 08:35:52 UTC">Added Core.Agent.ResizeNavigationBar(1); to resize the navigation.</ChangeLog>
     <ChangeLog Version="1.1.0" Date="2016-03-09 07:13:08 UTC">Ported to OTRS 5</ChangeLog>
     <ChangeLog Version="1.0.5" Date="2016-03-04 14:08:57 UTC">Added DefaultClassName to user preferences, added FallbackDefaultClassName ,  improved default CI Search class configuration and improved the documentaion.</ChangeLog>
