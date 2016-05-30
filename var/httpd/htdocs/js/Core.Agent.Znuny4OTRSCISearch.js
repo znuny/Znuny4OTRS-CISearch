@@ -33,6 +33,9 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
             return false;
         }
 
+        if ( $('#CISearch').length > 0 )return;
+
+
         // get default class, if given
         var CISearchLabel = Param.Label        || ' CI Search';
         var DefaultClass  = Param.DefaultClass || '';
