@@ -113,17 +113,22 @@ sub PreRun {
 
     $DefaultClass = $LanguageObject->Translate($DefaultClass);
 
-    $LayoutObject->AddJSOnDocumentComplete(
-        Code => <<ZNUNY,
-Core.Agent.Znuny4OTRSCISearch.Init({
-    Label:        '$CISearchLabel',
-    Prefix:       '$CISearchPrefix',
-    Suffix:       '$CISearchSuffix',
-    CIClasses:    $CIClassesJSON,
-    DefaultClass: '$DefaultClass'
-});
-ZNUNY
+    my $JSBlock = <<"JS_BLOCK";
+        Core.Agent.Znuny4OTRSCISearch.Init({
+        Label:        '$CISearchLabel',
+        Prefix:       '$CISearchPrefix',
+        Suffix:       '$CISearchSuffix',
+        CIClasses:    $CIClassesJSON,
+        DefaultClass: '$DefaultClass'
+    });
+JS_BLOCK
+
+    $LayoutObject->AddJSOnDocumentCompleteIfNotExists(
+        Key  => 'Znuny4OTRSCISearch',
+        Code => $JSBlock,
     );
+
+
     return;
 }
 
