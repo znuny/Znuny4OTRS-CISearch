@@ -60,6 +60,7 @@ sub PreRun {
             Type    => $Self->{Config}->{Permission},
             Scope   => 'Class',
             ClassID => $ClassID,
+            LogNo   => 1,
             UserID  => $Self->{UserID},
         );
 
