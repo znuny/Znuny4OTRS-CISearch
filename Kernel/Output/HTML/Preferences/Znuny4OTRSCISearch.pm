@@ -74,14 +74,14 @@ sub Run {
     for my $Key ( sort keys %{ $Param{GetParam} } ) {
         my @Array = @{ $Param{GetParam}->{$Key} };
         PREFERENCES:
-        for (@Array) {
+        for my $Preference (@Array) {
 
             # pref update db
             if ( !$ConfigObject->Get('DemoSystem') ) {
                 $UserObject->SetPreferences(
                     UserID => $Param{UserData}->{UserID},
                     Key    => $Key,
-                    Value  => $_,
+                    Value  => $Preference,
                 );
             }
 
@@ -91,7 +91,7 @@ sub Run {
             $SessionObject->UpdateSessionID(
                 SessionID => $Self->{SessionID},
                 Key       => $Key,
-                Value     => $_,
+                Value     => $Preference,
             );
         }
     }
