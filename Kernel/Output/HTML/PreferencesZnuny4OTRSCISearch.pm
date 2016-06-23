@@ -62,25 +62,27 @@ sub Run {
 
     for my $Key ( sort keys %{ $Param{GetParam} } ) {
         my @Array = @{ $Param{GetParam}->{$Key} };
-        for (@Array) {
+
+        PREFERENCES:
+        for my $Preference (@Array) {
 
             # pref update db
             if ( !$Self->{ConfigObject}->Get('DemoSystem') ) {
                 $Self->{UserObject}->SetPreferences(
                     UserID => $Param{UserData}->{UserID},
                     Key    => $Key,
-                    Value  => $_,
+                    Value  => $Preference,
                 );
             }
 
+            next PREFERENCES if $Param{UserData}->{UserID} ne $Self->{UserID};
+
             # update SessionID
-            if ( $Param{UserData}->{UserID} eq $Self->{UserID} ) {
-                $Self->{SessionObject}->UpdateSessionID(
-                    SessionID => $Self->{SessionID},
-                    Key       => $Key,
-                    Value     => $_,
-                );
-            }
+            $Self->{SessionObject}->UpdateSessionID(
+                SessionID => $Self->{SessionID},
+                Key       => $Key,
+                Value     => $Preference,
+            );
         }
     }
     $Self->{Message} = 'Preferences updated successfully!';
