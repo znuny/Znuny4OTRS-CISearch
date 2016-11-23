@@ -89,7 +89,7 @@ sub PreRun {
             Result => 'HASH',
         );
 
-        if ( IsHashRefWithData( \%Roles ) ) {
+        if (%Roles) {
             %Roles = reverse %Roles;
 
             GROUP:
@@ -128,7 +128,6 @@ JS_BLOCK
         Key  => 'Znuny4OTRSCISearch',
         Code => $JSBlock,
     );
-
 
     return;
 }
