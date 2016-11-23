@@ -82,12 +82,11 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
 
         $('#ToolBar').append(CISearchForm);
 
-        // add class visible-screenXL if resposive template is not activate
-        if (!Core.App.Responsive.IsTouchDevice()) {
-            $('body').addClass('Visible-ScreenXL');
-        }
-        // resize navigationbar after adding new inputfield
-        Core.Agent.ResizeNavigationBar(1);
+        Core.App.Subscribe('Event.App.Responsive.ScreenXL', function () {
+
+            // resize navigationbar after adding new inputfield
+            Core.Agent.ResizeNavigationBar(1);
+        });
 
         // initialising modernize and add margin-right to inputfield
         if (Core.Config.Get('InputFieldsActivated') === 1) {
