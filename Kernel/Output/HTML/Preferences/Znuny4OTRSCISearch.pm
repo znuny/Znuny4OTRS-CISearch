@@ -72,9 +72,9 @@ sub Run {
     my $UserObject    = $Kernel::OM->Get('Kernel::System::User');
 
     for my $Key ( sort keys %{ $Param{GetParam} } ) {
-        my @Array = @{ $Param{GetParam}->{$Key} };
+        my @Preferences = @{ $Param{GetParam}->{$Key} };
         PREFERENCES:
-        for my $Preference (@Array) {
+        for my $Preference (@Preferences) {
 
             # pref update db
             if ( !$ConfigObject->Get('DemoSystem') ) {
