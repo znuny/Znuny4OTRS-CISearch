@@ -46,7 +46,16 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
         CISearchForm    += '<form id="CISearch" action="'+ Core.Config.Get('Baselink') +'" method="post">';
         CISearchForm    += '<select id="ClassID" name="ClassID" class="Modernize" title="Class Selection" style="margin-right: 10px;">';
 
-        $.each(Param.CIClasses, function (Key, Value) {
+        Object.keys(Param.CIClasses)
+        .map(function (k) { return [k, Param.CIClasses[k]]; })
+        .sort(function (a, b) {
+            if (a[1] < b[1]) return -1;
+            if (a[1] > b[1]) return 1;
+            return 0;
+        })
+        .forEach(function (d) {
+            var Key   = d[0];
+            var Value = d[1];
 
             var Selected = '';
             if(Value === DefaultClass) {
