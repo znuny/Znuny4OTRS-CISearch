@@ -17,7 +17,7 @@ Modernized input field.</ChangeLog>
     <ChangeLog Version="1.0.2" Date="2015-11-30 12:07:26 UTC">Added translation of class names.</ChangeLog>
     <ChangeLog Version="1.0.1" Date="2015-11-30 11:49:56 UTC">Initial version.</ChangeLog>
     <Framework>5.0.x</Framework>
-    <PackageRequired Version="5.0.15">Znuny4OTRS-Repo</PackageRequired>
+    <PackageRequired Version="5.0.16">Znuny4OTRS-Repo</PackageRequired>
     <PackageRequired Version="5.0.0">ITSMConfigurationManagement</PackageRequired>
     <PackageRequired Version="5.0.0">GeneralCatalog</PackageRequired>
     <Vendor>Znuny GmbH</Vendor>
