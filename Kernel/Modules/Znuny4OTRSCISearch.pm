@@ -64,10 +64,8 @@ sub PreRun {
             UserID  => $Self->{UserID},
         );
 
-        if ( !$HasAccess ) {
-            delete $ClassList->{$ClassID};
-            next CLASSID;
-        }
+        delete $ClassList->{$ClassID} if !$HasAccess;
+        next CLASSID if !$HasAccess;
 
         $ClassList->{$ClassID} = $LanguageObject->Translate( $ClassList->{$ClassID} );
     }
