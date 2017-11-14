@@ -1,7 +1,30 @@
-image: registry.znuny.com/znuny/docker-otrs5ci:latest
+image: registry.znuny.com/znuny/docker-otrs6ci:latest
+
+services:
+  - mysql:latest
+
+variables:
+  MYSQL_DATABASE: otrs
+  MYSQL_ROOT_PASSWORD: znuny4otrs
 
 stages:
+  - test
   - deploy
+
+job_unit_otrs_Znuny4OTRSRepo:
+  stage: test
+  variables:
+    SELENIUM_SCREENSHOTS: 'true'
+  artifacts:
+    expire_in: 1 week
+    when: on_failure
+    untracked: true
+  script:
+    - env
+    - pwd
+    - /run.sh
+    - su -c "perl /opt/otrs/bin/otrs.Console.pl Znuny4OTRS::AdvancedPackageManager::InstallSOPM /opt/otrs/Znuny4OTRS-CISearch.sopm" -s /bin/bash otrs
+    - su -c "perl /opt/otrs/bin/otrs.Console.pl Dev::UnitTest::Run --verbose --test Selenium/Agent/Znuny4OTRSCISearch" -s /bin/bash otrs
 
 job_deploy_otrs_Znuny4OTRSCISearch:
   stage: deploy
