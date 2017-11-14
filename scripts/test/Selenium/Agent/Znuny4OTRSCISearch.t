@@ -97,6 +97,11 @@ my $SeleniumTest = sub {
 
     $SeleniumObject->find_element( '#CISearch', 'css' )->submit();
 
+    $SeleniumObject->WaitFor(
+        JavaScript =>
+            'return typeof(Core) == "object" && typeof(Core.App) == "object" && Core.App.PageLoadComplete'
+    ) || die "OTRS API verification failed after page load.";
+
     $SeleniumObject->PageContainsNot(
         String => $CIName,
     );
@@ -117,6 +122,11 @@ my $SeleniumTest = sub {
     );
 
     $SeleniumObject->find_element( '#CISearch', 'css' )->submit();
+
+    $SeleniumObject->WaitFor(
+        JavaScript =>
+            'return typeof(Core) == "object" && typeof(Core.App) == "object" && Core.App.PageLoadComplete'
+    ) || die "OTRS API verification failed after page load.";
 
     $SeleniumObject->PageContains(
         String => $CIName,
