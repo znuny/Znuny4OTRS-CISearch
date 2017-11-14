@@ -47,6 +47,10 @@ sub Param {
     }
 
     my @Params;
+    my $SelectedID = $ParamObject->GetParam( Param => 'CISearchDefaultClassName' );
+    $SelectedID ||= $Param{UserData}->{CISearchDefaultClassName};
+    $SelectedID ||= $LayoutObject->{CISearchDefaultClassName};
+
     push(
         @Params,
         {
@@ -54,11 +58,9 @@ sub Param {
             Name       => $Self->{ConfigItem}->{PrefKey},
             Data       => \%ReverseClasslist,
             HTMLQuote  => 0,
-            SelectedID => $ParamObject->GetParam( Param => 'CISearchDefaultClassName' )
-                || $Param{UserData}->{CISearchDefaultClassName}
-                || $LayoutObject->{CISearchDefaultClassName},
-            Block => 'Option',
-            Max   => 100,
+            SelectedID => $SelectedID,
+            Block      => 'Option',
+            Max        => 100,
         },
     );
     return @Params;
