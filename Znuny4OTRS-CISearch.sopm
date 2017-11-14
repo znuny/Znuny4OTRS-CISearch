@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <otrs_package version="1.0">
     <Name>Znuny4OTRS-CISearch</Name>
-    <Version>5.0.1</Version>
+    <Version>6.0.1</Version>
+    <ChangeLog Version="6.0.1" Date="2017-11-14 18:11:03 +0100">Ported to OTRS 6.</ChangeLog>
     <ChangeLog Version="5.0.1" Date="2017-01-28 10:06:18 +0100">Fixed issue #9 Sort CI classes alphabetical</ChangeLog>
     <ChangeLog Version="5.0.0" Date="2016-11-23 11:30:15 +0100">Fixed Issue#9 - 'NavigationBar items not dragable'.</ChangeLog>
     <ChangeLog Version="1.1.4" Date="2016-06-23 10:45:09 UTC">Fixed issue #7 - unwanted permission logs.</ChangeLog>
