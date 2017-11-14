@@ -17,20 +17,21 @@ Modernized input field.</ChangeLog>
     <ChangeLog Version="1.0.3" Date="2015-11-30 12:08:23 UTC">Follow up: Added translation of class names.</ChangeLog>
     <ChangeLog Version="1.0.2" Date="2015-11-30 12:07:26 UTC">Added translation of class names.</ChangeLog>
     <ChangeLog Version="1.0.1" Date="2015-11-30 11:49:56 UTC">Initial version.</ChangeLog>
-    <Framework>5.0.x</Framework>
-    <PackageRequired Version="5.0.16">Znuny4OTRS-Repo</PackageRequired>
-    <PackageRequired Version="5.0.0">ITSMConfigurationManagement</PackageRequired>
-    <PackageRequired Version="5.0.0">GeneralCatalog</PackageRequired>
+    <Framework>6.0.x</Framework>
+    <PackageRequired Version="6.0.4">Znuny4OTRS-Repo</PackageRequired>
+    <PackageRequired Version="5.0.94">ITSMConfigurationManagement</PackageRequired>
+    <PackageRequired Version="5.0.94">GeneralCatalog</PackageRequired>
     <Vendor>Znuny GmbH</Vendor>
     <URL>http://znuny.com/</URL>
     <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
     <Description Lang="en">This package adds an additional toolbar search box for config items.</Description>
     <Description Lang="de">Dieses Paket fügt eine neue Suchmaske nach Config Items zur Toolbar hinzu.</Description>
     <Filelist>
-        <File Permission="644" Location="Kernel/Config/Files/Znuny4OTRSCISearch.xml"/>
-        <File Permission="644" Location="Kernel/Language/de_Znuny4OTRSCISearch.pm"/>
-        <File Permission="644" Location="Kernel/Modules/Znuny4OTRSCISearch.pm"/>
-        <File Permission="644" Location="Kernel/Output/HTML/Preferences/Znuny4OTRSCISearch.pm"/>
-        <File Permission="644" Location="var/httpd/htdocs/js/Core.Agent.Znuny4OTRSCISearch.js"/>
+        <File Permission="660" Location="Kernel/Config/Files/XML/Znuny4OTRSCISearch.xml"/>
+        <File Permission="660" Location="Kernel/Language/de_Znuny4OTRSCISearch.pm"/>
+        <File Permission="660" Location="Kernel/Modules/Znuny4OTRSCISearch.pm"/>
+        <File Permission="660" Location="Kernel/Output/HTML/Preferences/Znuny4OTRSCISearch.pm"/>
+        <File Permission="660" Location="scripts/test/Selenium/Agent/Znuny4OTRSCISearch.t"/>
+        <File Permission="660" Location="var/httpd/htdocs/js/Core.Agent.Znuny4OTRSCISearch.js"/>
     </Filelist>
 </otrs_package>
