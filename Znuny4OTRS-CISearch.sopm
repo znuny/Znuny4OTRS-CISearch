@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <otrs_package version="1.0">
     <Name>Znuny4OTRS-CISearch</Name>
-    <Version>1.0.7</Version>
+    <Version>4.0.1</Version>
+    <ChangeLog Version="4.0.1" Date="2018-11-01 10:36:03 +0100">Tidied code.</ChangeLog>
     <ChangeLog Version="1.0.7" Date="2016-06-23 10:45:35 UTC">Fixed issue #7 - unwanted permission logs.</ChangeLog>
     <ChangeLog Version="1.0.6" Date="2016-03-23 08:35:44 UTC">Added Core.Agent.ResizeNavigationBar(1); to resize the navigation.</ChangeLog>
     <ChangeLog Version="1.0.4" Date="2015-12-09 16:02:34 UTC">- Added role class mapping for default class selection.&#13;
