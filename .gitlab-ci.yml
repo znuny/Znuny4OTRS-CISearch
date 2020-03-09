@@ -1,29 +1,12 @@
-image: registry.znuny.com/znuny/docker-otrs6ci:latest
+image: registry.znuny.com/znuny/internal/docker-otrs6ci:$OTRS_TAG
 
-stages:
-  - test
-  - deploy
+include:
+  - project: 'Znuny/Internal/Znuny'
+    file: '/templates/gitlab/.gitlab-ci-default.yml'
 
-job_unit_otrs_Znuny4OTRSRepo:
-  stage: test
-  services:
-    - name: docker.io/elgalu/selenium:latest
-    - name: registry.znuny.com/znuny/docker-mysql-utf8:latest
-      alias: mysql
-  variables:
-    SELENIUM_SCREENSHOTS: 'true'
-  artifacts:
-    expire_in: 1 week
-    when: on_failure
-    untracked: true
-  script:
-    - env
-    - pwd
+default:
+  before_script:
     - /run.sh
-    - su -c "perl /opt/otrs/bin/otrs.Console.pl Znuny4OTRS::AdvancedPackageManager::InstallSOPM /opt/otrs/Znuny4OTRS-CISearch.sopm" -s /bin/bash otrs
-    - su -c "perl /opt/otrs/bin/otrs.Console.pl Dev::UnitTest::Run --verbose --test Selenium/Agent/Znuny4OTRSCISearch" -s /bin/bash otrs
-
-job_deploy_otrs_Znuny4OTRSCISearch:
-  stage: deploy
-  script:
-    - sh /sync_repo.sh git@github.com:znuny/Znuny4OTRS-CISearch.git
+    - su -c "perl /opt/otrs/bin/otrs.Console.pl Znuny4OTRS::AdvancedPackageManager::InstallSOPM /opt/otrs/$CI_PROJECT_NAME.sopm" -s /bin/bash otrs
+  after_script:
+    - /unittest.sh

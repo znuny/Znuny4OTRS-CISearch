@@ -1,5 +1,5 @@
 # --
-# Copyright (C) 2012-2018 Znuny GmbH, http://znuny.com/
+# Copyright (C) 2012-2020 Znuny GmbH, http://znuny.com/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY. For details, see
 # the enclosed file COPYING for license information (AGPL). If you
@@ -16,6 +16,7 @@ use utf8;
 sub Data {
     my $Self = shift;
 
+    # SysConfig
     $Self->{Translation}->{'This configuration defines a mapping of role to class name that is used for the CI search'} = 'Diese Konfiguration definiert eine Rollen-Klassen Zuordnung, die für die CI Suche verwendent werden soll.';
     $Self->{Translation}->{'This configuration defines a prefix that will be used for the CI search.'} = 'Diese Konfiguration definiert ein Prefix, das für die CI Suche verwendent werden soll.';
     $Self->{Translation}->{'This configuration defines a suffix that will be used for the CI search.'} = 'Diese Konfiguration definiert ein Suffix, das für die CI Suche verwendent werden soll.';
@@ -24,6 +25,8 @@ sub Data {
     $Self->{Translation}->{'CI Search'} = 'CI Suche';
     $Self->{Translation}->{'This configuration defines a global default class that will be used for the CI search if no other class can not get determined.'} = 'Diese Konfiguration definiert eine globale Standard-Klasse, welche für die CI-Suche genutzt wird, wenn kein andere Klasse bestimmt werden konnte.';
     $Self->{Translation}->{'This configuration defines a mapping of role to class name that is used as default class for the CI search.'} = 'Diese Konfiguration definiert ein Mapping zwischen Rollen zu Klassen-Namen welche für die CI-Suche als Standard-Klasse genutzt wird.';
+    $Self->{Translation}->{'Defines the config parameters of this item, to be shown in the preferences view.'} = 'Definiert die Konfigurationsparameter dieses Elements, die in der Einstellungsansicht angezeigt werden sollen.';
+
     $Self->{Translation}->{'CISearch Default ClassName'} = 'CI Suche Standard-Klasse';
     $Self->{Translation}->{'Default ClassName'} = 'Standard-Klasse';
 
