@@ -1,5 +1,5 @@
 # --
-# Copyright (C) 2012-2020 Znuny GmbH, http://znuny.com/
+# Copyright (C) 2012-2021 Znuny GmbH, http://znuny.com/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY. For details, see
 # the enclosed file COPYING for license information (AGPL). If you
@@ -65,7 +65,7 @@ sub PreRun {
         );
 
         delete $ClassList->{$ClassID} if !$HasAccess;
-        next CLASSID if !$HasAccess;
+        next CLASSID                  if !$HasAccess;
 
         $ClassList->{$ClassID} = $LanguageObject->Translate( $ClassList->{$ClassID} );
     }
