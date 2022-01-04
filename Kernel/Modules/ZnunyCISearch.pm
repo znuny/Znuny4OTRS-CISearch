@@ -1,12 +1,12 @@
 # --
-# Copyright (C) 2012-2021 Znuny GmbH, http://znuny.com/
+# Copyright (C) 2012-2022 Znuny GmbH, http://znuny.com/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY. For details, see
 # the enclosed file COPYING for license information (AGPL). If you
 # did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
 # --
 
-package Kernel::Modules::Znuny4OTRSCISearch;
+package Kernel::Modules::ZnunyCISearch;
 
 use strict;
 use warnings;
@@ -18,7 +18,6 @@ our $ObjectManagerDisabled = 1;
 sub new {
     my ( $Type, %Param ) = @_;
 
-    # allocate new hash for object
     my $Self = \%Param;
     bless( $Self, $Type );
 
@@ -39,7 +38,7 @@ sub PreRun {
 
     # get config, just for the search
     $Self->{Config} = $ConfigObject->Get("ITSMConfigItem::Frontend::AgentITSMConfigItemSearch");
-    my $CISearchConfig = $ConfigObject->Get("Znuny4OTRSCISearch::SearchParams") || '';
+    my $CISearchConfig = $ConfigObject->Get("ZnunyCISearch::SearchParams") || '';
 
     my $CISearchLabel  = $LanguageObject->Translate('CI Search') || 'CI Search';
     my $CISearchPrefix = $CISearchConfig->{Prefix}               || '';
@@ -113,7 +112,7 @@ sub PreRun {
     $DefaultClass = $LanguageObject->Translate($DefaultClass);
 
     my $JSBlock = <<"JS_BLOCK";
-        Core.Agent.Znuny4OTRSCISearch.Init({
+        Core.Agent.ZnunyCISearch.Init({
         Label:        '$CISearchLabel',
         Prefix:       '$CISearchPrefix',
         Suffix:       '$CISearchSuffix',
@@ -123,7 +122,7 @@ sub PreRun {
 JS_BLOCK
 
     $LayoutObject->AddJSOnDocumentCompleteIfNotExists(
-        Key  => 'Znuny4OTRSCISearch',
+        Key  => 'ZnunyCISearch',
         Code => $JSBlock,
     );
 
