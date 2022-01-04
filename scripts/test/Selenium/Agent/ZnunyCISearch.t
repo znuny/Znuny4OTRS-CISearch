@@ -1,5 +1,5 @@
 # --
-# Copyright (C) 2012-2021 Znuny GmbH, http://znuny.com/
+# Copyright (C) 2012-2022 Znuny GmbH, http://znuny.com/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY. For details, see
 # the enclosed file COPYING for license information (AGPL). If you
@@ -14,13 +14,11 @@ use Kernel::System::VariableCheck qw(:all);
 
 use vars (qw($Self));
 
-# get the Znuny4OTRS Selenium object
 my $SeleniumObject = $Kernel::OM->Get('Kernel::System::UnitTest::Selenium');
 
-# store test function in variable so the Selenium object can handle errors/exceptions/dies etc.
 my $SeleniumTest = sub {
 
-    # initialize Znuny4OTRS Helpers and other needed objects
+    # initialize Znuny Helpers and other needed objects
     my $HelperObject                 = $Kernel::OM->Get('Kernel::System::UnitTest::Helper');
     my $ZnunyHelperObject            = $Kernel::OM->Get('Kernel::System::ZnunyHelper');
     my $UserObject                   = $Kernel::OM->Get('Kernel::System::User');
@@ -133,7 +131,6 @@ my $SeleniumTest = sub {
     );
 };
 
-# finally run the test(s) in the browser
 $SeleniumObject->RunTest($SeleniumTest);
 
 1;

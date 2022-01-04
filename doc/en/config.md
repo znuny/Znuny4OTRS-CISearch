@@ -2,36 +2,36 @@
 
 There are three SysConfig settings available:
 
-### Znuny4OTRSCISearch::SearchParams###Prefix
+### ZnunyCISearch::SearchParams###Prefix
 
-This SysConfig defines an optional prefix which is used for every search.
+This options defines an optional prefix which is used for every search.
 
-### Znuny4OTRSCISearch::SearchParams###Suffix
+### ZnunyCISearch::SearchParams###Suffix
 
-This SysConfig defines an optional suffix which is used for every search.
+This options defines an optional suffix which is used for every search.
 
-### Znuny4OTRSCISearch::SearchParams###FallbackDefaultClassName
+### ZnunyCISearch::SearchParams###FallbackDefaultClassName
 
-This configuration defines a global default class that will be used for the CI search if no other class can not get determined.
+This options defines a global default class that will be used for the CI search if no other class can be determined.
 
 default value: Computer
 
-### Znuny4OTRSCISearch::SearchParams###DefaultClassName
+### ZnunyCISearch::SearchParams###DefaultClassName
 
-Defines a default CI class where to search.
+Defines a default CI class to search in.
 
-Hint: CI class names can be translated by OTRS!
+Hint: CI class names can be translated.
 
-### Znuny4OTRSCISearch::SearchParams###DefaultClassName
+### ZnunyCISearch::SearchParams###DefaultClassName
 
-This configuration defines a mapping of role to class name that is used as default class for the CI search.
+This option defines a mapping of role to class name that is used as default class for the CI search.
 This configuration is disabled by default.
 
-Note: CI Class names will be also translated!
+Note: CI class names will be translated!
 
-Here's an example:
+Example:
 
-Role-Name  =>  Class-Name
+Role name  =>  Class name
 
 computerrole => Computer
 

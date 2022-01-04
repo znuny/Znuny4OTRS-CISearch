@@ -1,5 +1,5 @@
 // --
-// Copyright (C) 2012-2021 Znuny GmbH, http://znuny.com/
+// Copyright (C) 2012-2022 Znuny GmbH, http://znuny.com/
 // --
 // This software comes with ABSOLUTELY NO WARRANTY. For details, see
 // the enclosed file COPYING for license information (AGPL). If you
@@ -14,11 +14,11 @@ Core.Agent = Core.Agent || {};
 
 /**
  * @namespace
- * @exports TargetNS as Core.Agent.Znuny4OTRSCISearch
+ * @exports TargetNS as Core.Agent.ZnunyCISearch
  * @description
- *      This namespace contains the special functions for Znuny4OTRSCISearch.
+ *      This namespace contains the special functions for ZnunyCISearch.
  */
-Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
+Core.Agent.ZnunyCISearch = (function (TargetNS) {
 
     TargetNS.Init = function (Param) {
 
@@ -151,4 +151,4 @@ Core.Agent.Znuny4OTRSCISearch = (function (TargetNS) {
     }
 
     return TargetNS;
-}(Core.Agent.Znuny4OTRSCISearch || {}));
+}(Core.Agent.ZnunyCISearch || {}));
