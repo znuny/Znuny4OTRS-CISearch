@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <otrs_package version="1.0">
     <Name>Znuny-CISearch</Name>
-    <Version>6.1.1</Version>
+    <Version>6.2.1</Version>
+    <ChangeLog Version="6.2.1" Date="2022-01-05 10:16:25 +0100">Initial release for Znuny 6.2.</ChangeLog>
     <ChangeLog Version="6.1.1" Date="2022-01-05 09:30:23 +0100">Initial release for Znuny 6.1.</ChangeLog>
     <ChangeLog Version="6.0.4" Date="2021-02-12 17:36:49 +0100">Happy new year. Tidied code.</ChangeLog>
     <ChangeLog Version="6.0.3" Date="2019-02-05 17:39:31 +0100">Applied CodePolicy.</ChangeLog>
