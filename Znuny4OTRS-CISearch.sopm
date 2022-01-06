@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <otrs_package version="1.0">
     <Name>Znuny4OTRS-CISearch</Name>
-    <Version>6.0.4</Version>
+    <Version>6.0.5</Version>
+    <ChangeLog Version="6.0.5" Date="2022-01-06 15:21:39 +0100">Issue #2: Fixed handling of class hash reference.</ChangeLog>
     <ChangeLog Version="6.0.4" Date="2021-02-12 17:36:49 +0100">Happy new year. Tidied code.</ChangeLog>
     <ChangeLog Version="6.0.3" Date="2019-02-05 17:39:31 +0100">Applied CodePolicy.</ChangeLog>
     <ChangeLog Version="6.0.2" Date="2018-11-01 10:35:46 +0100">Tidied code.</ChangeLog>
