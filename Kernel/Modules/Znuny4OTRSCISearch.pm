@@ -1,5 +1,5 @@
 # --
-# Copyright (C) 2012-2021 Znuny GmbH, http://znuny.com/
+# Copyright (C) 2012-2022 Znuny GmbH, http://znuny.com/
 # --
 # This software comes with ABSOLUTELY NO WARRANTY. For details, see
 # the enclosed file COPYING for license information (AGPL). If you
@@ -51,11 +51,16 @@ sub PreRun {
         Class => 'ITSM::ConfigItem::Class',
     );
 
-    return if !IsHashRefWithData($ClassList);
+    # ItemList() above returns a reference to the class list that is being stored in the cache.
+    # Create a real hash copy to prevent changing data of the cache within the process.
+    # Otherwise the cache would contain the translated names of the classes (line 75 below).
+    my %ClassList = %{$ClassList};
+
+    return if !%ClassList;
 
     # check for access rights on the classes
     CLASSID:
-    for my $ClassID ( sort keys %{$ClassList} ) {
+    for my $ClassID ( sort keys %ClassList ) {
         my $HasAccess = $ConfigItemObject->Permission(
             Type    => $Self->{Config}->{Permission},
             Scope   => 'Class',
@@ -64,16 +69,16 @@ sub PreRun {
             UserID  => $Self->{UserID},
         );
 
-        delete $ClassList->{$ClassID} if !$HasAccess;
-        next CLASSID                  if !$HasAccess;
+        delete $ClassList{$ClassID} if !$HasAccess;
+        next CLASSID                if !$HasAccess;
 
-        $ClassList->{$ClassID} = $LanguageObject->Translate( $ClassList->{$ClassID} );
+        $ClassList{$ClassID} = $LanguageObject->Translate( $ClassList{$ClassID} );
     }
 
-    return if !IsHashRefWithData($ClassList);
+    return if !%ClassList;
 
     my $CIClassesJSON = $JSONObject->Encode(
-        Data => $ClassList,
+        Data => \%ClassList,
     );
 
     # set FallbackDefaultClassName if no other DefaultClass can't get determined by roles
