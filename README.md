@@ -11,21 +11,21 @@ With this extension you will be able search for ITSM Config Items via an input f
 
 - Znuny4OTRS-Repo
 
-- OTRS 6
+- ((OTRS)) Community Edition 6 / OTRS  6
 
 - ITSMConfigurationManagement
 
 **Installation**
 
-Download the package and install it via admin interface -> package manager or use Znuny4OTRS-Repo.
+Download the [package](https://addons.znuny.com/api/addon_repos/public/1086/latest) and install it via admin interface -> package manager or use [Znuny4OTRS-Repo](https://www.znuny.com/add-ons/znuny4otrs-repository).
 
 **Download**
 
-For download see [https://www.znuny.com/en/#!/addons](https://www.znuny.com/en/#!/addons)
+Download the [latest version](https://addons.znuny.com/api/addon_repos/public/1086/latest).
 
 **Commercial Support**
 
-For this extension and for OTRS in general visit [www.znuny.com](https://www.znuny.com). Looking forward to hear from you!
+For this add-on and for more in general visit [https://www.znuny.com](https://www.znuny.com). Looking forward to hear from you!
 
 Enjoy!
 
