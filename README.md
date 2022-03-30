@@ -1,7 +1,7 @@
 ![Znuny logo](https://www.znuny.com/assets/images/logo_small.png)
 
 
-![Build status](https://badge.proxy.znuny.com/Znuny4OTRS-CISearch/rel-6_2)
+![Build status](https://badge.proxy.znuny.com/Znuny4OTRS-CISearch/rel-6_3)
 
 Znuny-CISearch
 ==============
@@ -9,13 +9,12 @@ With this extension you will be able search for ITSM config items via an input f
 
 **Prerequisites**
 
-- Znuny 6.2
-- ITSMConfigurationManagement 6.2.x
-- GeneralCatalog 6.2.x
+- Znuny 6.3
+- ITSMConfigurationManagement 6.3.x
 
 **Installation**
 
-Download the [package](https://addons.znuny.com/api/addon_repos/public/2121/latest) and install it via admin interface -> package manager.
+Use the online repository or download the [package](https://addons.znuny.com/api/addon_repos/public/2241/latest) and install it via admin interface -> package manager.
 
 **Configuration**
 
@@ -23,7 +22,7 @@ No further configuration required.
 
 **Download**
 
-Download the [latest version](https://addons.znuny.com/api/addon_repos/public/2121/latest).
+Download the [latest version](https://addons.znuny.com/api/addon_repos/public/2241/latest).
 
 **Professional Support**
 
