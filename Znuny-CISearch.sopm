@@ -23,9 +23,9 @@ Modernized input field.</ChangeLog>
     <ChangeLog Version="1.0.3" Date="2015-11-30 12:08:23 UTC">Follow up: Added translation of class names.</ChangeLog>
     <ChangeLog Version="1.0.2" Date="2015-11-30 12:07:26 UTC">Added translation of class names.</ChangeLog>
     <ChangeLog Version="1.0.1" Date="2015-11-30 11:49:56 UTC">Initial version.</ChangeLog>
-    <Framework>6.2.x</Framework>
-    <PackageRequired Version="6.2.1">ITSMConfigurationManagement</PackageRequired>
-    <PackageRequired Version="6.2.1">GeneralCatalog</PackageRequired>
+    <Framework>6.3.x</Framework>
+    <PackageRequired Version="6.3.1">ITSMConfigurationManagement</PackageRequired>
+    <PackageRequired Version="6.3.1">GeneralCatalog</PackageRequired>
     <Vendor>Znuny GmbH</Vendor>
     <URL>http://znuny.com/</URL>
     <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
