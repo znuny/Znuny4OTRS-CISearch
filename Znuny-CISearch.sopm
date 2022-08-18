@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <otrs_package version="1.0">
     <Name>Znuny-CISearch</Name>
-    <Version>6.3.2</Version>
+    <Version>6.4.1</Version>
+    <ChangeLog Version="6.4.1" Date="2022-08-18 18:19:09 +0200">Ported to 6.4</ChangeLog>
     <ChangeLog Version="6.3.2" Date="2022-06-10 11:06:45 +0200">Fixed SysConfig migration in package setup.</ChangeLog>
     <ChangeLog Version="6.3.1" Date="2022-03-30 18:23:38 +0200">Initial release for 6.3</ChangeLog>
     <ChangeLog Version="6.2.1" Date="2022-01-05 10:16:25 +0100">Initial release for Znuny 6.2.</ChangeLog>
