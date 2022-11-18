@@ -1,11 +1,11 @@
 // --
-// Copyright (C) 2012-2022 Znuny GmbH, http://znuny.com/
+// Copyright (C) 2012-2022 Znuny GmbH, https://znuny.com/
 // --
 // This software comes with ABSOLUTELY NO WARRANTY. For details, see
 // the enclosed file COPYING for license information (AGPL). If you
 // did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
 // --
-
+// nofilter(TidyAll::Plugin::Znuny::JavaScript::ESLint)
 "use strict";
 
 var Core   = Core || {};
@@ -26,7 +26,6 @@ Core.Agent.ZnunyCISearch = (function (TargetNS) {
         $.each([ 'CIClasses' ], function (Index, ParameterName) {
             if (typeof Param[ ParameterName ] === 'undefined') {
                 ParamCheckSuccess = false;
-                // console.log("ERROR: Parameter '"+ ParameterName +"' is missing in Init call.");
             }
         });
         if (!ParamCheckSuccess){
