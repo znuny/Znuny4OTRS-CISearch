@@ -2,6 +2,14 @@
 <otrs_package version="1.0">
     <Name>Znuny-CISearch</Name>
     <Version>6.4.1</Version>
+    <Framework>6.4.x</Framework>
+    <PackageRequired Version="6.4.1">ITSMConfigurationManagement</PackageRequired>
+    <PackageRequired Version="6.4.1">GeneralCatalog</PackageRequired>
+    <Vendor>Znuny GmbH</Vendor>
+    <URL>http://znuny.com/</URL>
+    <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
+    <Description Lang="en">This package adds an additional toolbar search box for config items.</Description>
+    <Description Lang="de">Dieses Paket fügt eine neue Suchmaske nach Config Items zur Toolbar hinzu.</Description>
     <ChangeLog Version="6.4.1" Date="2022-08-18 18:19:09 +0200">Ported to 6.4</ChangeLog>
     <ChangeLog Version="6.3.2" Date="2022-06-10 11:06:45 +0200">Fixed SysConfig migration in package setup.</ChangeLog>
     <ChangeLog Version="6.3.1" Date="2022-03-30 18:23:38 +0200">Initial release for 6.3</ChangeLog>
@@ -26,14 +34,6 @@ Modernized input field.</ChangeLog>
     <ChangeLog Version="1.0.3" Date="2015-11-30 12:08:23 UTC">Follow up: Added translation of class names.</ChangeLog>
     <ChangeLog Version="1.0.2" Date="2015-11-30 12:07:26 UTC">Added translation of class names.</ChangeLog>
     <ChangeLog Version="1.0.1" Date="2015-11-30 11:49:56 UTC">Initial version.</ChangeLog>
-    <Framework>6.4.x</Framework>
-    <PackageRequired Version="6.4.1">ITSMConfigurationManagement</PackageRequired>
-    <PackageRequired Version="6.4.1">GeneralCatalog</PackageRequired>
-    <Vendor>Znuny GmbH</Vendor>
-    <URL>http://znuny.com/</URL>
-    <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
-    <Description Lang="en">This package adds an additional toolbar search box for config items.</Description>
-    <Description Lang="de">Dieses Paket fügt eine neue Suchmaske nach Config Items zur Toolbar hinzu.</Description>
     <Filelist>
         <File Permission="660" Location="Kernel/Config/Files/XML/ZnunyCISearch.xml"/>
         <File Permission="660" Location="Kernel/Language/de_ZnunyCISearch.pm"/>
