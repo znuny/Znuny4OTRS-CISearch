@@ -97,8 +97,8 @@ Core.Agent.ZnunyCISearch = (function (TargetNS) {
         });
 
         // initialising modernize and add margin-right to inputfield
-        if (Core.Config.Get('InputFieldsActivated') === 1) {
-            Core.UI.InputFields.InitSelect($('select.Modernize'));
+        if (Core.Config.Get('InputFieldsActivated') == 1) {
+            Core.UI.InputFields.Activate();
         }
         $("#CISearch > div > div").css("margin-right","10px");
 
