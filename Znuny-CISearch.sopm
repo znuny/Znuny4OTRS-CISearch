@@ -38,8 +38,8 @@ Modernized input field.</ChangeLog>
     <Filelist>
         <File Permission="660" Location="Kernel/Config/Files/XML/ZnunyCISearch.xml"/>
         <File Permission="660" Location="Kernel/Language/de_ZnunyCISearch.pm"/>
-        <File Permission="660" Location="Kernel/Modules/ZnunyCISearch.pm"/>
         <File Permission="660" Location="Kernel/Output/HTML/Preferences/ZnunyCISearch.pm"/>
+        <File Permission="660" Location="Kernel/Output/HTML/ToolBar/Search/CI.pm"/>
         <File Permission="660" Location="scripts/test/Selenium/Agent/ZnunyCISearch.t"/>
         <File Permission="660" Location="var/httpd/htdocs/js/Core.Agent.ZnunyCISearch.js"/>
         <File Permission="660" Location="var/packagesetup/ZnunyCISearch.pm"/>
