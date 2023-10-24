@@ -32,8 +32,31 @@ Core.Agent.ZnunyCISearch = (function (TargetNS) {
             return false;
         }
 
-        if ($('#CISearch').length > 0)return;
+        // Create observer to check if InitToolbarOverview ToolbarRefreshTime is running
+        var targetNode = document.body;
+        var config = { childList: true, subtree: true };
 
+        var callback = function(mutationsList, observer) {
+            for(let mutation of mutationsList) {
+                if (mutation.type === 'childList' && mutation.target.id === 'ToolBar') {
+
+                    // Elements have changed
+                    TargetNS.InitForm(Param);
+                }
+            }
+        };
+
+        var observer = new MutationObserver(callback);
+        observer.observe(targetNode, config);
+
+        TargetNS.InitForm(Param);
+
+        return true;
+    }
+
+    TargetNS.InitForm = function (Param) {
+
+        if ($('#CISearch').length > 0)return;
 
         // get default class, if given
         var CISearchLabel = Param.Label        || ' CI Search';
@@ -136,7 +159,8 @@ Core.Agent.ZnunyCISearch = (function (TargetNS) {
             $('#CISearch').trigger('submit');
         });
 
-        return true;
+        return false;
+
     }
 
     function GetSessionInformation() {
