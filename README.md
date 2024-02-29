@@ -1,7 +1,7 @@
 ![Znuny logo](https://www.znuny.com/assets/images/logo_small.png)
 
 
-![Build status](https://badge.proxy.znuny.com/Znuny4OTRS-CISearch/rel-6_5)
+![Build status](https://badge.proxy.znuny.com/Znuny4OTRS-CISearch/rel-7_0)
 
 Znuny-CISearch
 ==============
@@ -9,7 +9,7 @@ With this extension you will be able search for ITSM config items via an input f
 
 **Prerequisites**
 
-- Znuny 6.5
+- Znuny 7.0
 - ITSMConfigurationManagement 6.4.x
 
 **Installation**
