@@ -4,7 +4,7 @@ Die Erweiterung kann mit drei SysConfig-Einstellungen konfiguriert werden:
 
 ### ZnunyCISearch::SearchParams###Prefix
 
-Diese Optiom ermöglicht es, einen Präfix-Parameter für die Suche zu definieren, der an jede Eingabe im Suchfeld vorangestellt wird.
+Diese Option ermöglicht es, einen Präfix-Parameter für die Suche zu definieren, der an jede Eingabe im Suchfeld vorangestellt wird.
 
 ### ZnunyCISearch::SearchParams###Suffix
 
