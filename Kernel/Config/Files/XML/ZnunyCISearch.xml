@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <otrs_config version="2.0" init="Application">
+    <Setting Name="Frontend::ToolBarModule###220-ITSM::CISearch" UserPreferencesGroup="Advanced" UserModificationPossible="1" Required="0" Valid="1">
+        <Description Translatable="1">Agent interface module to access config items search via nav bar.</Description>
+        <Navigation>Frontend::Agent::ToolBar</Navigation>
+        <Value>
+            <Hash>
+                <Item Key="Module">Kernel::Output::HTML::ToolBar::Search::CI</Item>
+                <Item Key="Name" Translatable="1">CISearch</Item>
+                <Item Key="Description" Translatable="1">CI Search</Item>
+                <!-- Todo: Znuny 7.1 Use ToolBarSearch -->
+                <Item Key="Block">ToolBarItem</Item>
+                <Item Key="Priority">2000000</Item>
+            </Hash>
+        </Value>
+    </Setting>
     <Setting Name="Loader::Agent::CommonJS###999-ZnunyCISearch" Required="0" Valid="1">
         <Description Translatable="1">List of all JS files which are loaded to provide the CI search for the agent interface.</Description>
         <Navigation>Frontend::Base::Loader</Navigation>
@@ -9,13 +23,7 @@
             </Array>
         </Value>
     </Setting>
-    <Setting Name="PreApplicationModule###ZnunyCISearch" Required="0" Valid="1">
-        <Description Translatable="1">This configuration defines a PreApplication module to enable Znuny-CISearch in all views.</Description>
-        <Navigation>Frontend::Agent</Navigation>
-        <Value>
-            <Item ValueType="String" ValueRegex="">Kernel::Modules::ZnunyCISearch</Item>
-        </Value>
-    </Setting>
+
     <Setting Name="ZnunyCISearch::SearchParams###Prefix" Required="1" Valid="1">
         <Description Translatable="1">This configuration defines a prefix that will be used for the CI search.</Description>
         <Navigation>Core</Navigation>
