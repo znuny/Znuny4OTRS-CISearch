@@ -10,6 +10,7 @@ package Kernel::Output::HTML::Preferences::ZnunyCISearch;
 
 use strict;
 use warnings;
+use utf8;
 
 our @ObjectDependencies = (
     'Kernel::Config',

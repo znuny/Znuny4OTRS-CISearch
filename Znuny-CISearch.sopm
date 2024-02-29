@@ -2,9 +2,9 @@
 <otrs_package version="1.0">
     <Name>Znuny-CISearch</Name>
     <Version>6.5.1</Version>
-    <Framework>6.5.x</Framework>
-    <PackageRequired Version="6.5.1">ITSMConfigurationManagement</PackageRequired>
-    <PackageRequired Version="6.5.1">GeneralCatalog</PackageRequired>
+    <Framework>7.0.x</Framework>
+    <PackageRequired Version="7.0.1">ITSMConfigurationManagement</PackageRequired>
+    <PackageRequired Version="7.0.1">GeneralCatalog</PackageRequired>
     <Vendor>Znuny GmbH</Vendor>
     <URL>http://znuny.com/</URL>
     <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
@@ -38,8 +38,8 @@ Modernized input field.</ChangeLog>
     <Filelist>
         <File Permission="660" Location="Kernel/Config/Files/XML/ZnunyCISearch.xml"/>
         <File Permission="660" Location="Kernel/Language/de_ZnunyCISearch.pm"/>
-        <File Permission="660" Location="Kernel/Modules/ZnunyCISearch.pm"/>
         <File Permission="660" Location="Kernel/Output/HTML/Preferences/ZnunyCISearch.pm"/>
+        <File Permission="660" Location="Kernel/Output/HTML/ToolBar/Search/CI.pm"/>
         <File Permission="660" Location="scripts/test/Selenium/Agent/ZnunyCISearch.t"/>
         <File Permission="660" Location="var/httpd/htdocs/js/Core.Agent.ZnunyCISearch.js"/>
         <File Permission="660" Location="var/packagesetup/ZnunyCISearch.pm"/>

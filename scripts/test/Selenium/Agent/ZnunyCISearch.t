@@ -38,6 +38,8 @@ my $SeleniumTest = sub {
         Groups => [ 'admin', 'itsm-configitem', 'users' ],
     );
 
+    $SeleniumObject->find_element( '#ToolBar-toggle', 'css' )->click();
+
     my $PreferenceKey   = 'CISearchDefaultClassName';
     my $PreferenceValue = 'Software';
     $UserObject->SetPreferences(
@@ -46,7 +48,7 @@ my $SeleniumTest = sub {
         Value  => $PreferenceValue,
     );
 
-    for my $Displayed (qw(SearchName ClassID)) {
+    for my $Displayed (qw(SearchName ClassID_Search)) {
         my $IsDisplayed = $SeleniumObject->find_element( "#$Displayed", 'css' )->is_displayed();
         $Self->True( $IsDisplayed, "$Displayed is displayed" );
     }

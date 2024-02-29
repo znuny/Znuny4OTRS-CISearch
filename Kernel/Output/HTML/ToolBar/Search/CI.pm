@@ -6,25 +6,28 @@
 # did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
 # --
 
-package Kernel::Modules::ZnunyCISearch;
+package Kernel::Output::HTML::ToolBar::Search::CI;
+
+use parent 'Kernel::Output::HTML::Base';
 
 use strict;
 use warnings;
+use utf8;
 
 use Kernel::System::VariableCheck qw(:all);
 
-our $ObjectManagerDisabled = 1;
+our @ObjectDependencies = (
+    'Kernel::Config',
+    'Kernel::Language',
+    'Kernel::Output::HTML::Layout',
+    'Kernel::System::GeneralCatalog',
+    'Kernel::System::Group',
+    'Kernel::System::ITSMConfigItem',
+    'Kernel::System::JSON',
+    'Kernel::System::User',
+);
 
-sub new {
-    my ( $Type, %Param ) = @_;
-
-    my $Self = \%Param;
-    bless( $Self, $Type );
-
-    return $Self;
-}
-
-sub PreRun {
+sub Run {
     my ( $Self, %Param ) = @_;
 
     my $ConfigObject         = $Kernel::OM->Get('Kernel::Config');

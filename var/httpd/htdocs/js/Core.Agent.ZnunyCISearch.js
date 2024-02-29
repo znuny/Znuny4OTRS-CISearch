@@ -32,8 +32,31 @@ Core.Agent.ZnunyCISearch = (function (TargetNS) {
             return false;
         }
 
-        if ($('#CISearch').length > 0)return;
+        // Create observer to check if InitToolbarOverview ToolbarRefreshTime is running
+        var targetNode = document.body;
+        var config = { childList: true, subtree: true };
 
+        var callback = function(mutationsList, observer) {
+            for(let mutation of mutationsList) {
+                if (mutation.type === 'childList' && mutation.target.id === 'ToolBar') {
+
+                    // Elements have changed
+                    TargetNS.InitForm(Param);
+                }
+            }
+        };
+
+        var observer = new MutationObserver(callback);
+        observer.observe(targetNode, config);
+
+        TargetNS.InitForm(Param);
+
+        return true;
+    }
+
+    TargetNS.InitForm = function (Param) {
+
+        if ($('#CISearch').length > 0)return;
 
         // get default class, if given
         var CISearchLabel = Param.Label        || ' CI Search';
@@ -41,9 +64,12 @@ Core.Agent.ZnunyCISearch = (function (TargetNS) {
         var DefaultClassKey;
 
         // ugly but most performant
-        var CISearchForm = '<li class="Extended SearchProfile">';
-        CISearchForm    += '<form id="CISearch" action="'+ Core.Config.Get('Baselink') +'" method="post">';
-        CISearchForm    += '<select id="ClassID" name="ClassID" class="Modernize" title="Class Selection" style="margin-right: 10px;">';
+
+        var CISearchForm = '<div class="component-wrapper component-ci-search">';
+        CISearchForm    += '<div class="search-bar-container">';
+        CISearchForm    += '<label>'+CISearchLabel+'</label>';
+        CISearchForm    += '<form id="CISearch" action="'+ Core.Config.Get('Baselink') +'" method="post" style="width:auto; gap: unset;">';
+        CISearchForm    += '<select id="ClassID" name="ClassID" class="Modernize" title="Class Selection">';
 
         Object.keys(Param.CIClasses)
         .map(function (k) { return [k, Param.CIClasses[k]]; })
@@ -68,7 +94,7 @@ Core.Agent.ZnunyCISearch = (function (TargetNS) {
         });
 
         CISearchForm += '</select>';
-        CISearchForm += '<input type="text" size="20" name="SearchName" id="SearchName" value="" placeholder="'+CISearchLabel+'" title="'+CISearchLabel+'">';
+        CISearchForm += '<input type="text" size="20" name="SearchName" id="SearchName" value="" placeholder="'+CISearchLabel+'" title="'+CISearchLabel+'" style="width:auto;">';
         CISearchForm += '<input type="hidden" name="Action" value="AgentITSMConfigItemSearch">';
         CISearchForm += '<input type="hidden" name="Subaction" value="Search">';
         CISearchForm += '<input type="hidden" name="SearchDialog" value="1">';
@@ -86,9 +112,10 @@ Core.Agent.ZnunyCISearch = (function (TargetNS) {
         });
 
         CISearchForm += '</form>';
-        CISearchForm += '</li>';
+        CISearchForm += '</div>';
+        CISearchForm += '</div>';
 
-        $('#ToolBar').append(CISearchForm);
+        $('.component-search').after(CISearchForm);
 
         Core.App.Subscribe('Event.App.Responsive.ScreenXL', function () {
 
@@ -97,8 +124,8 @@ Core.Agent.ZnunyCISearch = (function (TargetNS) {
         });
 
         // initialising modernize and add margin-right to inputfield
-        if (Core.Config.Get('InputFieldsActivated') === 1) {
-            Core.UI.InputFields.InitSelect($('select.Modernize'));
+        if (Core.Config.Get('InputFieldsActivated') == 1) {
+            Core.UI.InputFields.Activate();
         }
         $("#CISearch > div > div").css("margin-right","10px");
 
@@ -136,7 +163,8 @@ Core.Agent.ZnunyCISearch = (function (TargetNS) {
             $('#CISearch').trigger('submit');
         });
 
-        return true;
+        return false;
+
     }
 
     function GetSessionInformation() {
