@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <otrs_package version="1.0">
     <Name>Znuny-CISearch</Name>
-    <Version>6.5.1</Version>
+    <Version>7.0.1</Version>
     <Framework>7.0.x</Framework>
     <PackageRequired Version="7.0.1">ITSMConfigurationManagement</PackageRequired>
     <PackageRequired Version="7.0.1">GeneralCatalog</PackageRequired>
@@ -10,6 +10,7 @@
     <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
     <Description Lang="en">This package adds an additional toolbar search box for config items.</Description>
     <Description Lang="de">Dieses Paket fügt eine neue Suchmaske nach Config Items zur Toolbar hinzu.</Description>
+    <ChangeLog Version="7.0.1" Date="2024-03-06 17:13:49 +0100">Initial release for Znuny 7.0</ChangeLog>
     <ChangeLog Version="6.5.1" Date="2023-02-20 15:54:26 +0100">Initial release for Znuny 6.5.</ChangeLog>
     <ChangeLog Version="6.4.1" Date="2022-08-18 18:19:09 +0200">Ported to 6.4</ChangeLog>
     <ChangeLog Version="6.3.2" Date="2022-06-10 11:06:45 +0200">Fixed SysConfig migration in package setup.</ChangeLog>
