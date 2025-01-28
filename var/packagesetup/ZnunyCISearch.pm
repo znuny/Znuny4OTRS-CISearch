@@ -20,8 +20,6 @@ our @ObjectDependencies = (
     'Kernel::System::ZnunyHelper',
 );
 
-use Kernel::System::VariableCheck qw(:all);
-
 =head1 NAME
 
 var::packagesetup::ZnunyCISearch - code to execute during package installation
@@ -168,8 +166,11 @@ sub _MigrateSysConfigSettings {
             }
         }
         next ORIGINALSYSCONFIGOPTIONNAME if !defined $OriginalSysConfigOptionValue;
+        next ORIGINALSYSCONFIGOPTIONNAME if !$RenamedSysConfigOptions{$OriginalSysConfigOptionName};
 
         my $NewSysConfigOptionNames = $RenamedSysConfigOptions{$OriginalSysConfigOptionName};
+
+        NEWSYSCONFIGOPTIONNAME:
         for my $NewSysConfigOptionName ( @{$NewSysConfigOptionNames} ) {
             my $SettingUpdated = $SysConfigObject->SettingsSet(
                 Settings => [
@@ -182,7 +183,7 @@ sub _MigrateSysConfigSettings {
                 UserID => $UserID,
             );
 
-            next ORIGINALSYSCONFIGOPTIONNAME if $SettingUpdated;
+            next NEWSYSCONFIGOPTIONNAME if $SettingUpdated;
 
             $LogObject->Log(
                 Priority => 'error',
