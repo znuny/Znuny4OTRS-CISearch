@@ -10,7 +10,7 @@
     <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
     <Description Lang="en">This package adds an additional toolbar search box for config items.</Description>
     <Description Lang="de">Dieses Paket fügt eine neue Suchmaske nach Config Items zur Toolbar hinzu.</Description>
-    <ChangeLog Version="7.2.1" Date="2025-09-05 09:17:06 +0200">Initial release for Znuny 7.1.</ChangeLog>
+    <ChangeLog Version="7.2.1" Date="2025-09-05 09:17:06 +0200">Initial release for Znuny 7.2.</ChangeLog>
     <ChangeLog Version="7.1.2" Date="2025-01-28 09:33:24 +0100">Fixed sopm Versions.</ChangeLog>
     <ChangeLog Version="7.1.1" Date="2025-01-28 09:25:18 +0100">Initial release for Znuny 7.1.</ChangeLog>
     <ChangeLog Version="7.0.1" Date="2024-03-06 17:13:49 +0100">Initial release for Znuny 7.0</ChangeLog>
