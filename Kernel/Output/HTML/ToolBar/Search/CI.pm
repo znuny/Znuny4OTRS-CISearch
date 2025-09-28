@@ -43,9 +43,9 @@ sub Run {
     $Self->{Config} = $ConfigObject->Get("ITSMConfigItem::Frontend::AgentITSMConfigItemSearch");
     my $CISearchConfig = $ConfigObject->Get("ZnunyCISearch::SearchParams") || '';
 
-    my $CISearchLabel  = $LanguageObject->Translate('CI Search') || 'CI Search';
-    my $CISearchPrefix = $CISearchConfig->{Prefix}               || '';
-    my $CISearchSuffix = $CISearchConfig->{Suffix}               || '';
+    my $CISearchLabel        = $LanguageObject->Translate('CI Search') || 'CI Search';
+    my $CISearchPrefix       = $CISearchConfig->{Prefix}               || '';
+    my $CISearchSuffix       = $CISearchConfig->{Suffix}               || '';
     my $CISearchDefaultClass = $LanguageObject->Translate( $CISearchConfig->{DefaultClassName} || '' );
 
     # get all classes
